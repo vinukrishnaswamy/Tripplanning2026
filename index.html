@@ -299,6 +299,36 @@ body {
   color: var(--text); padding: 10px; margin-bottom: 12px;
 }
 
+/* ── CARD PHOTO ─────────────────────────────────────── */
+.aphoto {
+  width: 100%; height: 190px; overflow: hidden;
+  background: linear-gradient(90deg, #dde4f5 25%, #c8d3ec 50%, #dde4f5 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  display: none;
+}
+.aphoto.vis { display: block; animation: none; background: var(--s3); }
+.aphoto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@keyframes shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ── CARD TITLE ROW + LINK ──────────────────────────── */
+.atitle-row {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 6px;
+}
+.alink {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 11px; font-weight: 600; color: var(--accent);
+  text-decoration: none; padding: 3px 9px;
+  border: 1px solid rgba(37,99,235,0.3); border-radius: 20px;
+  background: var(--abg); transition: all 0.12s;
+  white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+}
+.alink:hover { background: #dbeafe; border-color: var(--accent); }
+
 /* ── TRANSPORT CONNECTOR ────────────────────────────── */
 .tconn-row .atime   { opacity: 0; pointer-events: none; }
 .tconn-row .adotcol { opacity: 0; }
@@ -604,6 +634,44 @@ const FOOD_CL = [
   'Halal Cart Chicken & Rice','Italian Pasta','Fish Tacos',"Junior's Cheesecake",'Black & White Cookie',
 ];
 
+// ── ACTIVITY META (wiki article + official link) ──────
+const META = {
+  'Oculus':                          { wiki:'Oculus (transit hub)',                   url:'https://www.wtc.com/visit/oculus' },
+  '9/11 Memorial':                   { wiki:'National September 11 Memorial & Museum',url:'https://www.911memorial.org' },
+  'One World Observatory':           { wiki:'One World Observatory',                  url:'https://www.oneworldobservatory.com' },
+  'Financial District Walk':         { wiki:'Wall Street',                            url:'https://www.nycgo.com/articles/wall-street-financial-district' },
+  'Stone Street':                    { wiki:'Stone Street (Manhattan)',                url:'https://www.nycgo.com/attractions/stone-street' },
+  'Roosevelt Island Tram':           { wiki:'Roosevelt Island Tramway',               url:'https://rioc.ny.gov/302/Tram' },
+  'Breakfast · Bagels':              { wiki:'Bagel',                                  url:'https://www.leosbagels.com' },
+  'Walk to Battery Park':            { wiki:'Battery Park',                           url:'https://www.thebattery.org' },
+  'Statue of Liberty + Ellis Island':{ wiki:'Statue of Liberty',                      url:'https://www.nps.gov/stli/index.htm' },
+  'Chinatown':                       { wiki:'Chinatown, Manhattan',                   url:'https://www.explorechinatown.com' },
+  'Canal Street Shopping':           { wiki:'Canal Street (Manhattan)',               url:'https://www.nycgo.com/neighborhoods/chinatown' },
+  'Bryant Park':                     { wiki:'Bryant Park',                            url:'https://bryantpark.org' },
+  'New York Public Library':         { wiki:'New York Public Library',                url:'https://www.nypl.org' },
+  'Empire State Building':           { wiki:'Empire State Building',                  url:'https://www.esbnyc.com' },
+  'Walk Fifth Avenue':               { wiki:'Fifth Avenue',                           url:'https://www.nycgo.com/articles/fifth-avenue' },
+  'Times Square · Countdown':        { wiki:'Times Square',                           url:'https://www.timessquarenyc.org' },
+  'Family Gathering · Times Square': { wiki:'Times Square',                           url:'https://www.timessquarenyc.org' },
+  '🎂 HAPPY BIRTHDAY!':              { wiki:'Times Square',                           url:'https://www.timessquarenyc.org' },
+  'The Metropolitan Museum of Art':  { wiki:'Metropolitan Museum of Art',             url:'https://www.metmuseum.org' },
+  'Central Park':                    { wiki:'Central Park',                           url:'https://www.centralparknyc.org' },
+  'Rockefeller Center':              { wiki:'Rockefeller Center',                     url:'https://www.rockefellercenter.com' },
+  'FAO Schwarz':                     { wiki:'FAO Schwarz',                            url:'https://fao.com' },
+  'Nintendo Store NYC':              { wiki:'Nintendo New York',                      url:'https://www.nintendo.com/stores/nintendo-new-york/' },
+  "St. Patrick's Cathedral":         { wiki:"St. Patrick's Cathedral, New York City", url:'https://saintpatrickscathedral.org' },
+  'Grand Central Terminal':          { wiki:'Grand Central Terminal',                 url:'https://www.grandcentralterminal.com' },
+  'SUMMIT One Vanderbilt':           { wiki:'One Vanderbilt',                         url:'https://www.summitov.com' },
+  "Birthday Dinner · Junior's":      { wiki:"Junior's Restaurant",                   url:'https://www.juniorscheesecake.com' },
+  'DUMBO':                           { wiki:'DUMBO, Brooklyn',                        url:'https://dumbo.is' },
+  'Lunch · Brooklyn':                { wiki:'Brooklyn Bridge',                        url:'https://julianaspizza.com' },
+  'Walk Brooklyn Bridge':            { wiki:'Brooklyn Bridge',                        url:'https://www.nycgo.com/attractions/brooklyn-bridge' },
+  'South Street Seaport':            { wiki:'South Street Seaport',                  url:'https://www.southstreetseaport.com' },
+  'SoHo':                            { wiki:'SoHo, Manhattan',                       url:'https://www.nycgo.com/neighborhoods/soho' },
+  'Greenwich Village':               { wiki:'Greenwich Village',                      url:'https://www.nycgo.com/neighborhoods/greenwich-village' },
+  'Washington Square Park':          { wiki:'Washington Square Park',                url:'https://www.nycgovparks.org/parks/washington-square-park' },
+};
+
 // ── STATE ─────────────────────────────────────────────
 let activeView = 'overview';
 let filters    = new Set();
@@ -720,6 +788,7 @@ function renderDay(id) {
   acts.forEach((act, i) => {
     const dc      = DOT_C[act.dot] || DOT_C.default;
     const tagStr  = act.tags.join(' ');
+    const actMeta = META[act.name] || {};
     const tagChips = act.tags.map(t => {
       const td = TAGS[t];
       return td ? `<span class="atag" style="background:${td.bg};color:${td.c}">${td.icon} ${td.label}</span>` : '';
@@ -734,13 +803,20 @@ function renderDay(id) {
     body += `<div class="adesc">${act.desc}</div>`;
     if (act.fo) body += `<div class="fopts">${act.fo.map(f=>`<span class="fopt">🍴 ${f}</span>`).join('')}</div>`;
 
-    let meta = '';
-    if (act.dur) meta += `<span class="mpill mdur">⏱ ${act.dur}</span>`;
-    if (act.res) meta += `<span class="mpill mbook">📋 Book ahead</span>`;
-    if (meta) body += `<div class="ameta">${meta}</div>`;
+    let pills = '';
+    if (act.dur) pills += `<span class="mpill mdur">⏱ ${act.dur}</span>`;
+    if (act.res) pills += `<span class="mpill mbook">📋 Book ahead</span>`;
+    if (pills) body += `<div class="ameta">${pills}</div>`;
 
     body += `<div class="atags">${tagChips}</div>`;
     body += `<div class="aenergy"><div class="ebar">${energySegs}</div><span>${ENERGY_LABEL[act.energy]}</span></div>`;
+
+    const photoDiv = actMeta.wiki
+      ? `<div class="aphoto" data-aname="${act.name.replace(/"/g,'&quot;')}"></div>`
+      : '';
+    const linkBtn = actMeta.url
+      ? `<a href="${actMeta.url}" target="_blank" rel="noopener noreferrer" class="alink" onclick="event.stopPropagation()">↗ Explore</a>`
+      : '';
 
     html += `
       <div class="arow" data-tags="${tagStr}" id="ar-${id}-${i}">
@@ -748,9 +824,13 @@ function renderDay(id) {
         <div class="adotcol"><div class="adot" style="background:${dc}"></div></div>
         <div class="acol">
           <div class="acard">
+            ${photoDiv}
             <div class="acard-bar" style="background:${dc}"></div>
             <div class="acard-inner">
-              <div class="aname">${act.name}</div>
+              <div class="atitle-row">
+                <div class="aname">${act.name}</div>
+                ${linkBtn}
+              </div>
               ${body}
             </div>
           </div>
@@ -773,6 +853,44 @@ function renderDay(id) {
 
   html += '</div>';
   el.innerHTML = html;
+}
+
+// ── WIKIPEDIA PHOTO LOADER ────────────────────────────
+const photoCache = {};
+
+async function loadDayPhotos(dayId) {
+  const acts = ACTS.filter(a => a.day === dayId && META[a.name] && META[a.name].wiki);
+  for (const act of acts) {
+    const wiki = META[act.name].wiki;
+    if (photoCache[wiki] === null) continue; // known miss
+    try {
+      let src = photoCache[wiki];
+      if (!src) {
+        const res = await fetch(
+          `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wiki)}`,
+          { headers: { 'Accept': 'application/json' } }
+        );
+        if (!res.ok) { photoCache[wiki] = null; continue; }
+        const data = await res.json();
+        if (!data.thumbnail || !data.thumbnail.source) { photoCache[wiki] = null; continue; }
+        // Bump to a larger size
+        src = data.thumbnail.source.replace(/\/\d+px-/, '/640px-');
+        photoCache[wiki] = src;
+      }
+      // Inject into matching container(s)
+      const safeKey = act.name.replace(/"/g,'&quot;');
+      const containers = document.querySelectorAll(`[data-aname="${safeKey}"]`);
+      containers.forEach(container => {
+        if (container.classList.contains('vis')) return; // already loaded
+        const img = document.createElement('img');
+        img.alt = act.name;
+        img.src = src;
+        img.onerror = () => { container.style.display = 'none'; };
+        img.onload  = () => { container.classList.add('vis'); };
+        container.appendChild(img);
+      });
+    } catch(e) { photoCache[wiki] = null; }
+  }
 }
 
 // ── APPLY FILTERS ─────────────────────────────────────
@@ -810,7 +928,12 @@ function showView(view) {
     el.classList.toggle('active', el.id === `view-${view}`);
   });
   document.getElementById('empty').style.display = 'none';
-  if (view !== 'overview') { renderDay(view.replace('d','')); applyFilters(); }
+  if (view !== 'overview') {
+    const dayId = view.replace('d','');
+    renderDay(dayId);
+    applyFilters();
+    loadDayPhotos(dayId);
+  }
   window.scrollTo(0, 0);
 }
 
