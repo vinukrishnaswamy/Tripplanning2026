@@ -122,32 +122,27 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
 /* ── FLOW STRIP ── */
 .day-flow{
-  display:flex;align-items:center;
-  overflow-x:auto;scrollbar-width:none;
-  gap:0;margin-top:10px;
-  padding:2px 0 4px;
-  -webkit-overflow-scrolling:touch;
+  display:flex;flex-wrap:wrap;align-items:center;
+  gap:5px 4px;margin-top:12px;
 }
-.day-flow::-webkit-scrollbar{display:none}
 
 .df-chip{
-  flex-shrink:0;
-  display:flex;flex-direction:column;align-items:center;gap:2px;
-  width:56px;padding:5px 3px;
-  background:var(--s2);border:1px solid var(--border);border-radius:7px;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 11px;white-space:nowrap;
+  background:var(--s2);border:1px solid var(--border);border-radius:20px;
 }
 .df-chip-icon{font-size:13px;line-height:1}
-.df-chip-time{font-size:8px;font-weight:700;color:var(--dim);line-height:1}
-.df-chip-name{
-  font-size:8px;color:var(--muted);text-align:center;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:50px;
-}
+.df-chip-time{font-size:10px;font-weight:700;color:var(--dim)}
+.df-chip-name{font-size:11px;color:var(--text);font-weight:500}
+
 .df-conn{
-  flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:1px;
-  padding:0 3px;
+  display:inline-flex;align-items:center;gap:3px;
+  font-size:10px;color:var(--dim);
+  white-space:nowrap;padding:0 1px;
 }
-.df-conn-icon{font-size:10px;opacity:0.55;line-height:1}
-.df-conn-bar{width:14px;height:1px;background:var(--border)}
+.df-conn-icon{font-size:11px}
+.df-conn-text{font-size:10px}
+.df-conn-arrow{color:var(--border);font-size:10px}
 
 .dc-meta{
   display:flex;gap:10px;margin-top:8px;
@@ -314,8 +309,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 @media(max-width:480px){
   .dc-title{font-size:13px}
   .aname{font-size:12px}
-  .df-chip{width:52px}
-  .df-chip-name{width:46px}
 }
 </style>
 </head>
@@ -355,19 +348,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 <div class="main">
   <div id="view-overview" class="dview active">
     <div class="overview" id="ovcards"></div>
-  </div>
-  <div id="view-d1" class="dview"></div>
-  <div id="view-d2" class="dview"></div>
-  <div id="view-d3" class="dview"></div>
-  <div id="view-d4" class="dview"></div>
-
-  <div id="empty" class="empty" style="display:none">
-    <div class="empty-ico">🔍</div>
-    <div class="empty-txt">No activities match</div>
-    <div class="empty-sub">Clear some filters to see more</div>
-  </div>
-
-  <div class="panels">
+    <div class="panels">
     <div class="panel" id="panel-food">
       <div class="phdr" onclick="togglePanel('food')">
         <span>🍽️ NYC Food Checklist</span><span class="pchev">▼</span>
@@ -389,6 +370,18 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
         </div>
       </div>
     </div>
+  </div>
+  </div><!-- end view-overview -->
+
+  <div id="view-d1" class="dview"></div>
+  <div id="view-d2" class="dview"></div>
+  <div id="view-d3" class="dview"></div>
+  <div id="view-d4" class="dview"></div>
+
+  <div id="empty" class="empty" style="display:none">
+    <div class="empty-ico">🔍</div>
+    <div class="empty-txt">No activities match</div>
+    <div class="empty-sub">Clear some filters to see more</div>
   </div>
 </div>
 
@@ -553,11 +546,6 @@ function actIcon(act) {
   return (TAGS[first] && TAGS[first].icon) || '📍';
 }
 
-function shortName(name) {
-  const n = name.replace(/🎂\s*/,'');
-  return n.length > 10 ? n.slice(0, 9) + '…' : n;
-}
-
 // ── RENDER FILTER CHIPS ───────────────────────────────────────────────────────
 function renderFilters() {
   document.getElementById('frow').innerHTML =
@@ -609,18 +597,20 @@ function renderOverview() {
     let flowHtml = '';
     acts.forEach((act, i) => {
       const icon = actIcon(act);
-      const timeStr = act.time + (act.ap === 'AM' ? 'a' : 'p');
+      const timeStr = act.time + ' ' + act.ap;
       flowHtml += `
-        <div class="df-chip" onclick="event.stopPropagation();showView('d${day.id}')">
-          <div class="df-chip-icon">${icon}</div>
-          <div class="df-chip-time">${timeStr}</div>
-          <div class="df-chip-name">${shortName(act.name)}</div>
+        <div class="df-chip">
+          <span class="df-chip-icon">${icon}</span>
+          <span class="df-chip-time">${timeStr}</span>
+          <span class="df-chip-name">${act.name.replace(/✈️\s*/,'')}</span>
         </div>`;
       if (act.tn && i < acts.length - 1) {
         flowHtml += `
           <div class="df-conn">
-            <div class="df-conn-icon">${act.tn.i}</div>
-            <div class="df-conn-bar"></div>
+            <span class="df-conn-arrow">›</span>
+            <span class="df-conn-icon">${act.tn.i}</span>
+            <span class="df-conn-text">${act.tn.t}</span>
+            <span class="df-conn-arrow">›</span>
           </div>`;
       }
     });
