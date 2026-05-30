@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYC Family Trip · June 2026</title>
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --surface2: #1a2236;
+    --surface3: #243048;
+    --border: #2d3f5e;
+    --text: #e8edf5;
+    --text-muted: #7a92b8;
+    --text-dim: #4a6080;
+    --accent: #4f9cf9;
+    --accent-glow: rgba(79,156,249,0.15);
+
+    --tag-food: #f59e0b;
+    --tag-food-bg: rgba(245,158,11,0.15);
+    --tag-rest: #10b981;
+    --tag-rest-bg: rgba(16,185,129,0.15);
+    --tag-walk: #f97316;
+    --tag-walk-bg: rgba(249,115,22,0.15);
+    --tag-culture: #8b5cf6;
+    --tag-culture-bg: rgba(139,92,246,0.15);
+    --tag-kids: #ec4899;
+    --tag-kids-bg: rgba(236,72,153,0.15);
+    --tag-views: #06b6d4;
+    --tag-views-bg: rgba(6,182,212,0.15);
+    --tag-shop: #a78bfa;
+    --tag-shop-bg: rgba(167,139,250,0.15);
+    --tag-night: #6366f1;
+    --tag-night-bg: rgba(99,102,241,0.15);
+    --tag-birthday: #f43f5e;
+    --tag-birthday-bg: rgba(244,63,94,0.15);
+    --tag-must: #eab308;
+    --tag-must-bg: rgba(234,179,8,0.15);
+    --tag-outdoor: #22c55e;
+    --tag-outdoor-bg: rgba(34,197,94,0.15);
+    --tag-indoor: #64748b;
+    --tag-indoor-bg: rgba(100,116,139,0.15);
+    --tag-tiring: #ef4444;
+    --tag-tiring-bg: rgba(239,68,68,0.15);
+    --tag-transport: #14b8a6;
+    --tag-transport-bg: rgba(20,184,166,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  /* ── HERO ─────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 48px 24px 32px;
+    text-align: center;
+    background: linear-gradient(160deg, #0f1f3d 0%, #0a0e1a 60%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(79,156,249,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 30%, rgba(99,102,241,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-skyline {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80'%3E%3Crect x='0' y='40' width='30' height='40' fill='white'/%3E%3Crect x='35' y='30' width='20' height='50' fill='white'/%3E%3Crect x='60' y='10' width='15' height='70' fill='white'/%3E%3Crect x='80' y='35' width='25' height='45' fill='white'/%3E%3Crect x='110' y='20' width='18' height='60' fill='white'/%3E%3Crect x='133' y='5' width='22' height='75' fill='white'/%3E%3Crect x='160' y='25' width='30' height='55' fill='white'/%3E%3Crect x='195' y='15' width='16' height='65' fill='white'/%3E%3Crect x='215' y='38' width='28' height='42' fill='white'/%3E%3Crect x='248' y='22' width='20' height='58' fill='white'/%3E%3Crect x='273' y='8' width='14' height='72' fill='white'/%3E%3Crect x='292' y='30' width='22' height='50' fill='white'/%3E%3Crect x='319' y='18' width='26' height='62' fill='white'/%3E%3Crect x='350' y='3' width='18' height='77' fill='white'/%3E%3Crect x='373' y='28' width='24' height='52' fill='white'/%3E%3Crect x='402' y='12' width='20' height='68' fill='white'/%3E%3Crect x='427' y='35' width='16' height='45' fill='white'/%3E%3Crect x='448' y='0' width='12' height='80' fill='white'/%3E%3Crect x='465' y='20' width='28' height='60' fill='white'/%3E%3Crect x='498' y='32' width='22' height='48' fill='white'/%3E%3Crect x='525' y='15' width='18' height='65' fill='white'/%3E%3Crect x='548' y='5' width='16' height='75' fill='white'/%3E%3Crect x='569' y='25' width='24' height='55' fill='white'/%3E%3Crect x='598' y='38' width='30' height='42' fill='white'/%3E%3Crect x='633' y='10' width='20' height='70' fill='white'/%3E%3Crect x='658' y='22' width='14' height='58' fill='white'/%3E%3Crect x='677' y='30' width='26' height='50' fill='white'/%3E%3Crect x='708' y='6' width='18' height='74' fill='white'/%3E%3Crect x='731' y='28' width='22' height='52' fill='white'/%3E%3Crect x='758' y='14' width='16' height='66' fill='white'/%3E%3Crect x='779' y='35' width='28' height='45' fill='white'/%3E%3Crect x='812' y='2' width='20' height='78' fill='white'/%3E%3Crect x='837' y='18' width='24' height='62' fill='white'/%3E%3Crect x='866' y='30' width='18' height='50' fill='white'/%3E%3Crect x='889' y='8' width='22' height='72' fill='white'/%3E%3Crect x='916' y='24' width='16' height='56' fill='white'/%3E%3Crect x='937' y='36' width='26' height='44' fill='white'/%3E%3Crect x='968' y='12' width='20' height='68' fill='white'/%3E%3Crect x='993' y='28' width='18' height='52' fill='white'/%3E%3Crect x='1016' y='4' width='14' height='76' fill='white'/%3E%3Crect x='1035' y='20' width='28' height='60' fill='white'/%3E%3Crect x='1068' y='32' width='22' height='48' fill='white'/%3E%3Crect x='1095' y='16' width='16' height='64' fill='white'/%3E%3Crect x='1116' y='38' width='20' height='42' fill='white'/%3E%3Crect x='1141' y='10' width='18' height='70' fill='white'/%3E%3Crect x='1164' y='24' width='24' height='56' fill='white'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .trip-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-glow);
+    border: 1px solid rgba(79,156,249,0.25);
+    padding: 4px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-val {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ── LAYOUT ───────────────────────────────────────── */
+  .app {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px 80px;
+  }
+
+  /* ── DAY TABS ─────────────────────────────────────── */
+  .day-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 20px 0 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .day-tabs::-webkit-scrollbar { display: none; }
+  .day-tab {
+    flex-shrink: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    min-width: 120px;
+  }
+  .day-tab:hover { border-color: var(--accent); background: var(--surface2); }
+  .day-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(79,156,249,0.3);
+  }
+  .day-tab.active .tab-num { color: #fff; }
+  .day-tab.active .tab-label { color: rgba(255,255,255,0.85); }
+  .day-tab.active .tab-date { color: rgba(255,255,255,0.7); }
+  .tab-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    margin-bottom: 2px;
+  }
+  .tab-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .tab-date {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  /* ── FILTER BAR ───────────────────────────────────── */
+  .filter-section {
+    margin-top: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+  }
+  .filter-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .filter-chip {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all 0.15s;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .filter-chip .chip-icon { font-size: 13px; }
+  .filter-chip:not(.active) {
+    background: var(--surface2);
+    border-color: var(--border);
+    color: var(--text-muted);
+  }
+  .filter-chip:not(.active):hover {
+    border-color: var(--text-muted);
+    color: var(--text);
+  }
+  .clear-btn {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-dim);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: color 0.15s;
+  }
+  .clear-btn:hover { color: var(--text-muted); }
+
+  /* energy legend */
+  .energy-legend {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .legend-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .legend-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ── RESULTS BAR ──────────────────────────────────── */
+  .results-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 4px;
+  }
+  .results-count {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+  .view-toggle {
+    display: flex;
+    gap: 4px;
+  }
+  .view-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.15s;
+    color: var(--text-muted);
+  }
+  .view-btn.active {
+    background: var(--surface3);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ── TIMELINE ─────────────────────────────────────── */
+  .timeline {
+    position: relative;
+    margin-top: 12px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 48px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--border) 5%, var(--border) 95%, transparent);
+  }
+
+  .day-section { margin-bottom: 0; }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 0 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+  }
+  .day-header-badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .day-header-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .day-header-theme {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* ── ACTIVITY CARD ────────────────────────────────── */
+  .activity-row {
+    display: flex;
+    gap: 0;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .activity-row.hidden { display: none; }
+
+  .time-col {
+    width: 48px;
+    flex-shrink: 0;
+    padding-top: 14px;
+    text-align: right;
+    padding-right: 16px;
+  }
+  .time-text {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-dim);
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .time-text .am-pm { font-size: 9px; display: block; }
+
+  .dot-col {
+    width: 1px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .timeline-dot {
+    position: absolute;
+    top: 18px;
+    left: -5px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    z-index: 2;
+  }
+
+  .card-col {
+    flex: 1;
+    padding: 0 0 0 16px;
+  }
+
+  .activity-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    transition: all 0.2s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .activity-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 2px 0 0 2px;
+  }
+  .activity-card:hover {
+    border-color: rgba(79,156,249,0.35);
+    background: var(--surface2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  /* card accent by category */
+  .card-food::before { background: var(--tag-food); }
+  .card-rest::before { background: var(--tag-rest); }
+  .card-culture::before { background: var(--tag-culture); }
+  .card-views::before { background: var(--tag-views); }
+  .card-shop::before { background: var(--tag-shop); }
+  .card-night::before { background: var(--tag-night); }
+  .card-birthday::before { background: var(--tag-birthday); }
+  .card-transport::before { background: var(--tag-transport); }
+  .card-default::before { background: var(--accent); }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .card-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .energy-pill {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .energy-1 { background: rgba(16,185,129,0.15); color: #10b981; }
+  .energy-2 { background: rgba(234,179,8,0.15); color: #eab308; }
+  .energy-3 { background: rgba(249,115,22,0.15); color: #f97316; }
+  .energy-4 { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+  .card-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .duration-badge {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-dim);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px 7px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .tag-badge {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .tag-badge .tag-icon { font-size: 10px; }
+
+  /* separator */
+  .time-separator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 4px 0;
+    padding-left: 56px;
+  }
+  .sep-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .sep-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    opacity: 0.5;
+  }
+
+  /* food section card */
+  .food-options {
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .food-chip {
+    font-size: 11px;
+    color: var(--tag-food);
+    background: var(--tag-food-bg);
+    border: 1px solid rgba(245,158,11,0.25);
+    border-radius: 8px;
+    padding: 3px 9px;
+    font-weight: 500;
+  }
+
+  /* birthday highlight */
+  .birthday-banner {
+    background: linear-gradient(135deg, rgba(244,63,94,0.12), rgba(99,102,241,0.12));
+    border: 1px solid rgba(244,63,94,0.3);
+    border-radius: 12px;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .birthday-banner span { color: #f43f5e; }
+
+  /* empty state */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+  }
+  .empty-icon { font-size: 48px; margin-bottom: 12px; }
+  .empty-text { font-size: 15px; font-weight: 600; margin-bottom: 4px; color: var(--text-muted); }
+  .empty-sub { font-size: 13px; }
+
+  /* food checklist panel */
+  .checklist-panel {
+    margin-top: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .checklist-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+  }
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .checklist-item:hover { border-color: var(--tag-food); }
+  .checklist-item.checked {
+    border-color: var(--tag-food);
+    background: var(--tag-food-bg);
+  }
+  .checklist-item.checked .check-box { background: var(--tag-food); border-color: var(--tag-food); }
+  .checklist-item.checked .check-box::after { opacity: 1; }
+  .check-box {
+    width: 16px; height: 16px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.15s;
+  }
+  .check-box::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 900;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .check-label { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+
+  /* reservations */
+  .reservations-panel {
+    margin-top: 16px;
+    background: var(--surface);
+    border: 1px solid rgba(234,179,8,0.3);
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .reservations-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #eab308;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .res-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .res-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 6px 10px;
+    background: var(--surface2);
+    border-radius: 8px;
+  }
+  .res-num {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(234,179,8,0.15);
+    border: 1px solid rgba(234,179,8,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; color: #eab308;
+    flex-shrink: 0;
+  }
+  .res-optional { margin-left: auto; font-size: 10px; color: var(--text-dim); }
+
+  /* grid view */
+  .grid-view .timeline::before { display: none; }
+  .grid-view .activity-row { flex-direction: column; }
+  .grid-view .time-col { display: none; }
+  .grid-view .dot-col { display: none; }
+  .grid-view .card-col { padding: 0; }
+  .grid-view .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 32px 16px 24px; }
+    .hero h1 { font-size: 26px; }
+    .hero-stats { gap: 20px; }
+    .timeline::before { left: 36px; }
+    .time-col { width: 36px; padding-right: 12px; }
+    .time-text { font-size: 9px; }
+    .card-name { font-size: 13px; }
+    .day-header-theme { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-skyline"></div>
+  <div class="trip-label">NYC Family Trip · 2026</div>
+  <h1>New York City</h1>
+  <div class="hero-sub">June 17–20 &nbsp;·&nbsp; 2 Adults · 2 Children &nbsp;·&nbsp; 4 Days</div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-val">4</span><span class="stat-label">Days</span></div>
+    <div class="stat"><span class="stat-val">19+</span><span class="stat-label">Attractions</span></div>
+    <div class="stat"><span class="stat-val">🎂</span><span class="stat-label">Birthday Day</span></div>
+    <div class="stat"><span class="stat-val">6</span><span class="stat-label">Reservations</span></div>
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- DAY TABS -->
+  <div class="day-tabs">
+    <div class="day-tab active" data-day="all" onclick="setDay('all')">
+      <div class="tab-num">All</div>
+      <div class="tab-label">Full Trip</div>
+      <div class="tab-date">Jun 17–20</div>
+    </div>
+    <div class="day-tab" data-day="1" onclick="setDay('1')">
+      <div class="tab-num">Day 1</div>
+      <div class="tab-label">Arrival</div>
+      <div class="tab-date">Wed Jun 17</div>
+    </div>
+    <div class="day-tab" data-day="2" onclick="setDay('2')">
+      <div class="tab-num">Day 2</div>
+      <div class="tab-label">Liberty</div>
+      <div class="tab-date">Thu Jun 18</div>
+    </div>
+    <div class="day-tab" data-day="3" onclick="setDay('3')">
+      <div class="tab-num">Day 3 🎂</div>
+      <div class="tab-label">Birthday</div>
+      <div class="tab-date">Fri Jun 19</div>
+    </div>
+    <div class="day-tab" data-day="4" onclick="setDay('4')">
+      <div class="tab-num">Day 4</div>
+      <div class="tab-label">Brooklyn</div>
+      <div class="tab-date">Sat Jun 20</div>
+    </div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filter-section">
+    <div class="filter-title">Filter by type</div>
+    <div class="filter-chips" id="filterChips">
+      <div class="filter-chip" data-tag="must-do" onclick="toggleFilter(this)" style="--c:#eab308;--bg:rgba(234,179,8,0.15)">
+        <span class="chip-icon">⭐</span> Must-Do
+      </div>
+      <div class="filter-chip" data-tag="kid-friendly" onclick="toggleFilter(this)" style="--c:#ec4899;--bg:rgba(236,72,153,0.15)">
+        <span class="chip-icon">🧒</span> Kid-Friendly
+      </div>
+      <div class="filter-chip" data-tag="food" onclick="toggleFilter(this)" style="--c:#f59e0b;--bg:rgba(245,158,11,0.15)">
+        <span class="chip-icon">🍕</span> Food
+      </div>
+      <div class="filter-chip" data-tag="rest" onclick="toggleFilter(this)" style="--c:#10b981;--bg:rgba(16,185,129,0.15)">
+        <span class="chip-icon">😴</span> Rest
+      </div>
+      <div class="filter-chip" data-tag="walk-heavy" onclick="toggleFilter(this)" style="--c:#f97316;--bg:rgba(249,115,22,0.15)">
+        <span class="chip-icon">🚶</span> Walk-Heavy
+      </div>
+      <div class="filter-chip" data-tag="views" onclick="toggleFilter(this)" style="--c:#06b6d4;--bg:rgba(6,182,212,0.15)">
+        <span class="chip-icon">📸</span> Views
+      </div>
+      <div class="filter-chip" data-tag="culture" onclick="toggleFilter(this)" style="--c:#8b5cf6;--bg:rgba(139,92,246,0.15)">
+        <span class="chip-icon">🏛️</span> Culture
+      </div>
+      <div class="filter-chip" data-tag="shopping" onclick="toggleFilter(this)" style="--c:#a78bfa;--bg:rgba(167,139,250,0.15)">
+        <span class="chip-icon">🛍️</span> Shopping
+      </div>
+      <div class="filter-chip" data-tag="night" onclick="toggleFilter(this)" style="--c:#6366f1;--bg:rgba(99,102,241,0.15)">
+        <span class="chip-icon">🌙</span> Night
+      </div>
+      <div class="filter-chip" data-tag="birthday" onclick="toggleFilter(this)" style="--c:#f43f5e;--bg:rgba(244,63,94,0.15)">
+        <span class="chip-icon">🎂</span> Birthday
+      </div>
+      <div class="filter-chip" data-tag="outdoor" onclick="toggleFilter(this)" style="--c:#22c55e;--bg:rgba(34,197,94,0.15)">
+        <span class="chip-icon">🌳</span> Outdoor
+      </div>
+      <div class="filter-chip" data-tag="indoor" onclick="toggleFilter(this)" style="--c:#64748b;--bg:rgba(100,116,139,0.15)">
+        <span class="chip-icon">🏠</span> Indoor
+      </div>
+      <div class="filter-chip" data-tag="tiring" onclick="toggleFilter(this)" style="--c:#ef4444;--bg:rgba(239,68,68,0.15)">
+        <span class="chip-icon">🔥</span> High Energy
+      </div>
+      <div class="filter-chip" data-tag="transport" onclick="toggleFilter(this)" style="--c:#14b8a6;--bg:rgba(20,184,166,0.15)">
+        <span class="chip-icon">🚇</span> Transport
+      </div>
+      <span class="clear-btn" onclick="clearFilters()">Clear all</span>
+    </div>
+    <div class="energy-legend">
+      <span class="legend-label">Energy:</span>
+      <div class="legend-item"><div class="legend-dot" style="background:#10b981"></div> Low</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#eab308"></div> Moderate</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f97316"></div> High</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div> Very High</div>
+    </div>
+  </div>
+
+  <!-- RESULTS BAR -->
+  <div class="results-bar">
+    <span class="results-count" id="resultsCount">Showing all activities</span>
+    <div class="view-toggle">
+      <div class="view-btn active" id="timelineBtn" onclick="setView('timeline')" title="Timeline view">☰</div>
+      <div class="view-btn" id="gridBtn" onclick="setView('grid')" title="Grid view">⊞</div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline" id="timeline"></div>
+
+  <!-- EMPTY STATE -->
+  <div class="empty-state" id="emptyState" style="display:none">
+    <div class="empty-icon">🔍</div>
+    <div class="empty-text">No activities match</div>
+    <div class="empty-sub">Try removing some filters or switching days</div>
+  </div>
+
+  <!-- FOOD CHECKLIST -->
+  <div class="checklist-panel" id="foodChecklist">
+    <div class="checklist-title">🍽️ NYC Food Checklist</div>
+    <div class="checklist-grid" id="checklistGrid"></div>
+  </div>
+
+  <!-- RESERVATIONS -->
+  <div class="reservations-panel">
+    <div class="reservations-title">📋 Reservations to Make</div>
+    <div class="res-list">
+      <div class="res-item"><div class="res-num">1</div> Statue of Liberty Ferry</div>
+      <div class="res-item"><div class="res-num">2</div> One World Observatory</div>
+      <div class="res-item"><div class="res-num">3</div> SUMMIT One Vanderbilt</div>
+      <div class="res-item"><div class="res-num">4</div> The Metropolitan Museum of Art</div>
+      <div class="res-item"><div class="res-num">5</div> Carmine's <span class="res-optional">Optional</span></div>
+      <div class="res-item"><div class="res-num">6</div> Junior's Restaurant <span class="res-optional">Optional · Birthday Dinner</span></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── DATA ────────────────────────────────────────────────────────────────────
+
+const DAYS = [
+  {
+    id: '1',
+    label: 'Day 1',
+    title: 'Arrival Day',
+    date: 'Wednesday, June 17',
+    theme: 'Lower Manhattan + Roosevelt Island Tram',
+  },
+  {
+    id: '2',
+    label: 'Day 2',
+    title: 'Statue of Liberty',
+    date: 'Thursday, June 18',
+    theme: 'Liberty + Canal Street + Times Square Countdown',
+  },
+  {
+    id: '3',
+    label: 'Day 3',
+    title: '🎂 Birthday Day',
+    date: 'Friday, June 19',
+    theme: 'The Met + Central Park + SUMMIT',
+  },
+  {
+    id: '4',
+    label: 'Day 4',
+    title: 'Brooklyn & Departure',
+    date: 'Saturday, June 20',
+    theme: 'DUMBO + Brooklyn Bridge + SoHo + Departure',
+  }
+];
+
+// energy: 1=low, 2=moderate, 3=high, 4=very high
+// cardType drives the left-border accent color
+const ACTIVITIES = [
+  // ── DAY 1 ──
+  {
+    day: '1', time: '9:00 AM', name: 'Arrive in NYC',
+    desc: 'Land and make your way to the hotel area.',
+    tags: ['transport'], cardType: 'transport', energy: 1,
+    duration: null,
+  },
+  {
+    day: '1', time: '10:30 AM', name: 'Hotel Arrival',
+    desc: 'Drop luggage with bell desk at Courtyard NYC Downtown. Room likely not ready yet.',
+    tags: ['transport', 'rest'], cardType: 'default', energy: 1,
+    duration: null,
+  },
+  {
+    day: '1', time: '11:00 AM', name: 'Oculus / Westfield Mall',
+    desc: 'Iconic architectural marvel by Santiago Calatrava. Great spot for family photos inside.',
+    tags: ['kid-friendly', 'culture', 'indoor', 'views'], cardType: 'culture', energy: 1,
+    duration: '30 min',
+  },
+  {
+    day: '1', time: '11:30 AM', name: '9/11 Memorial',
+    desc: 'Two reflecting pools marking the footprints of the Twin Towers. A solemn and important visit.',
+    tags: ['must-do', 'culture', 'outdoor', 'walk-heavy'], cardType: 'culture', energy: 2,
+    duration: '30–45 min',
+  },
+  {
+    day: '1', time: '12:15 PM', name: 'Lunch — Lower Manhattan',
+    desc: 'Options: Eataly Downtown · Dig · Sweetgreen. Quick, fresh, and family-friendly.',
+    tags: ['food', 'kid-friendly', 'indoor'], cardType: 'food', energy: 1,
+    duration: '~60 min',
+    foodOptions: ['Eataly Downtown', 'Dig', 'Sweetgreen'],
+  },
+  {
+    day: '1', time: '1:15 PM', name: 'One World Observatory',
+    desc: '1,776 ft up — panoramic 360° views of NYC. Sky Portal floor, SkyPod elevator experience. Book in advance!',
+    tags: ['must-do', 'kid-friendly', 'views', 'indoor', 'tiring'], cardType: 'views', energy: 2,
+    duration: '90 min',
+    reservation: true,
+  },
+  {
+    day: '1', time: '2:45 PM', name: 'Walk Financial District',
+    desc: 'See Wall Street, NY Stock Exchange (exterior), Trinity Church, and the famous Charging Bull statue.',
+    tags: ['culture', 'outdoor', 'walk-heavy', 'kid-friendly'], cardType: 'culture', energy: 2,
+    duration: '45 min',
+  },
+  {
+    day: '1', time: '3:30 PM', name: 'Hotel Check-In',
+    desc: 'Settle into Courtyard NYC Downtown. Drop bags, freshen up.',
+    tags: ['rest', 'indoor'], cardType: 'rest', energy: 1,
+    duration: null,
+  },
+  {
+    day: '1', time: '3:30 PM', name: 'Rest',
+    desc: 'Essential recovery after travel day. Kids and adults both need it.',
+    tags: ['rest', 'indoor'], cardType: 'rest', energy: 1,
+    duration: '2 hrs',
+  },
+  {
+    day: '1', time: '5:45 PM', name: 'Stone Street',
+    desc: 'One of NYC\'s oldest cobblestone streets. Charming evening atmosphere with restaurants and bars.',
+    tags: ['culture', 'outdoor', 'night'], cardType: 'night', energy: 1,
+    duration: '45 min',
+  },
+  {
+    day: '1', time: '6:30 PM', name: 'Dinner — Lower Manhattan',
+    desc: 'Options: Adrienne\'s Pizza Bar · Industry Kitchen. Try NYC pizza, seafood, or pasta.',
+    tags: ['food', 'kid-friendly', 'night'], cardType: 'food', energy: 1,
+    duration: '~90 min',
+    foodOptions: ["Adrienne's Pizza Bar", 'Industry Kitchen'],
+  },
+  {
+    day: '1', time: '8:00 PM', name: 'Roosevelt Island Tram',
+    desc: 'Subway to 59th St → aerial tram ride over the East River → Roosevelt Island waterfront walk → return. Stunning skyline views at night.',
+    tags: ['must-do', 'kid-friendly', 'views', 'night', 'transport', 'tiring'], cardType: 'views', energy: 3,
+    duration: '2 hrs',
+  },
+  {
+    day: '1', time: '10:00 PM', name: 'Return to Hotel',
+    desc: 'Early night. Tomorrow is a big day at Statue of Liberty.',
+    tags: ['rest', 'transport'], cardType: 'rest', energy: 1,
+    duration: null,
+  },
+
+  // ── DAY 2 ──
+  {
+    day: '2', time: '7:30 AM', name: 'Breakfast — Bagels',
+    desc: 'Options: Leo\'s Bagels · Liberty Bagels. Must-try: everything bagel, egg & cheese, or lox & cream cheese.',
+    tags: ['food', 'kid-friendly'], cardType: 'food', energy: 1,
+    duration: '60 min',
+    foodOptions: ["Leo's Bagels", 'Liberty Bagels'],
+  },
+  {
+    day: '2', time: '8:30 AM', name: 'Walk to Battery Park',
+    desc: 'Short walk from hotel to Battery Park to catch the Statue of Liberty ferry.',
+    tags: ['walk-heavy', 'outdoor'], cardType: 'transport', energy: 1,
+    duration: '15 min',
+  },
+  {
+    day: '2', time: '9:00 AM', name: 'Statue of Liberty + Ellis Island',
+    desc: 'Ferry to Liberty Island, explore the statue grounds and museum, then Ellis Island immigration museum. One of the great American experiences.',
+    tags: ['must-do', 'kid-friendly', 'culture', 'outdoor', 'views', 'tiring', 'walk-heavy'], cardType: 'culture', energy: 3,
+    duration: '4 hrs',
+    reservation: true,
+  },
+  {
+    day: '2', time: '1:15 PM', name: 'Lunch — Waterfront',
+    desc: 'Options: Urban Cove · Shake Shack. Keep it simple after a big morning.',
+    tags: ['food', 'kid-friendly'], cardType: 'food', energy: 1,
+    duration: '60 min',
+    foodOptions: ['Urban Cove', 'Shake Shack'],
+  },
+  {
+    day: '2', time: '2:30 PM', name: 'Chinatown',
+    desc: 'Explore one of NYC\'s most vibrant neighborhoods. Great street food, shops, and energy.',
+    tags: ['culture', 'outdoor', 'walk-heavy', 'kid-friendly'], cardType: 'culture', energy: 2,
+    duration: '30 min',
+  },
+  {
+    day: '2', time: '3:00 PM', name: 'Canal Street Shopping',
+    desc: 'Famous for souvenirs, street vendors, and unique finds. Great for picking up NYC keepsakes for the kids.',
+    tags: ['shopping', 'outdoor', 'kid-friendly', 'walk-heavy'], cardType: 'shop', energy: 2,
+    duration: '2 hrs',
+  },
+  {
+    day: '2', time: '5:00 PM', name: 'Return to Hotel + Rest',
+    desc: 'Critical rest before the late-night birthday countdown. Kids must nap or at least lie down.',
+    tags: ['rest', 'indoor', 'transport'], cardType: 'rest', energy: 1,
+    duration: '2 hrs',
+  },
+  {
+    day: '2', time: '7:30 PM', name: 'Bryant Park',
+    desc: 'Beautiful Midtown park at dusk. Fountains, greenery, and a great calm before the Times Square excitement.',
+    tags: ['outdoor', 'kid-friendly', 'night'], cardType: 'night', energy: 1,
+    duration: '15 min',
+  },
+  {
+    day: '2', time: '7:45 PM', name: 'New York Public Library',
+    desc: 'Iconic Beaux-Arts building. Exterior and main lobby worth seeing — even just passing by.',
+    tags: ['culture', 'indoor', 'night', 'kid-friendly'], cardType: 'culture', energy: 1,
+    duration: '30 min',
+  },
+  {
+    day: '2', time: '8:15 PM', name: 'Empire State Building',
+    desc: 'Iconic exterior and building base for photos. Beautifully lit at night.',
+    tags: ['views', 'outdoor', 'night', 'must-do', 'kid-friendly'], cardType: 'views', energy: 1,
+    duration: '30 min',
+  },
+  {
+    day: '2', time: '8:45 PM', name: 'Walk Fifth Avenue',
+    desc: 'Stroll the famous avenue. Lit up at night with flagship stores and incredible architecture.',
+    tags: ['walk-heavy', 'outdoor', 'night', 'shopping'], cardType: 'night', energy: 2,
+    duration: '30 min',
+  },
+  {
+    day: '2', time: '9:15 PM', name: 'Dinner — Times Square Area',
+    desc: 'Options: Carmine\'s (family-style Italian, huge portions) or John\'s of Times Square (classic NYC pizza).',
+    tags: ['food', 'kid-friendly', 'night', 'indoor'], cardType: 'food', energy: 1,
+    duration: '60 min',
+    foodOptions: ["Carmine's", "John's of Times Square"],
+  },
+  {
+    day: '2', time: '10:15 PM', name: 'Times Square — Midnight Countdown',
+    desc: 'M&M Store, Disney Store, Hershey\'s, souvenir shopping. Build excitement for the midnight birthday!',
+    tags: ['kid-friendly', 'shopping', 'night', 'birthday', 'tiring', 'must-do'], cardType: 'birthday', energy: 3,
+    duration: '90 min',
+  },
+  {
+    day: '2', time: '11:45 PM', name: 'Birthday Countdown — Times Square',
+    desc: 'Gather the family in Times Square for the midnight birthday celebration. Family photos!',
+    tags: ['birthday', 'night', 'must-do', 'outdoor'], cardType: 'birthday', energy: 2,
+    duration: '15 min',
+  },
+  {
+    day: '2', time: '12:00 AM', name: '🎂 HAPPY BIRTHDAY!',
+    desc: 'Midnight birthday celebration right in the heart of Times Square. An unforgettable moment.',
+    tags: ['birthday', 'night', 'must-do', 'kid-friendly'], cardType: 'birthday', energy: 2,
+    duration: '30 min',
+    isBirthday: true,
+  },
+
+  // ── DAY 3 ──
+  {
+    day: '3', time: '10:00 AM', name: 'Sleep In + Relaxed Breakfast',
+    desc: 'Birthday Day starts slow. Everyone deserves to sleep in after last night\'s midnight celebration.',
+    tags: ['rest', 'food', 'kid-friendly', 'indoor'], cardType: 'rest', energy: 1,
+    duration: '90 min',
+  },
+  {
+    day: '3', time: '11:30 AM', name: 'Depart for The Met',
+    desc: 'Head uptown to the Upper East Side via subway.',
+    tags: ['transport'], cardType: 'transport', energy: 1,
+    duration: '30 min',
+  },
+  {
+    day: '3', time: '12:00 PM', name: 'The Metropolitan Museum of Art',
+    desc: 'One of the world\'s greatest museums. Highlights: Temple of Dendur, Egyptian Collection, Arms & Armor (kids love it!), European Paintings.',
+    tags: ['must-do', 'culture', 'indoor', 'kid-friendly', 'birthday', 'tiring', 'walk-heavy'], cardType: 'culture', energy: 3,
+    duration: '3 hrs',
+    reservation: true,
+  },
+  {
+    day: '3', time: '3:00 PM', name: 'Lunch — Upper East Side',
+    desc: 'Museum Cafe or a nearby Upper East Side restaurant. Take a proper break before Central Park.',
+    tags: ['food', 'kid-friendly', 'indoor'], cardType: 'food', energy: 1,
+    duration: '60 min',
+  },
+  {
+    day: '3', time: '4:00 PM', name: 'Central Park',
+    desc: 'Alice in Wonderland Statue, Bethesda Terrace, Bow Bridge, Sheep Meadow. Take it slow — soak it all in.',
+    tags: ['must-do', 'outdoor', 'kid-friendly', 'walk-heavy', 'views', 'birthday'], cardType: 'default', energy: 2,
+    duration: '2 hrs',
+  },
+  {
+    day: '3', time: '6:30 PM', name: 'Rockefeller Center',
+    desc: 'The iconic plaza and Top of the Rock area. NBC Studios, 30 Rock — great atmosphere in the evening.',
+    tags: ['must-do', 'culture', 'outdoor', 'views', 'kid-friendly', 'birthday'], cardType: 'views', energy: 1,
+    duration: '30 min',
+  },
+  {
+    day: '3', time: '7:00 PM', name: 'FAO Schwarz',
+    desc: 'The legendary toy store. Birthday shopping! Let the kids go wild with their birthday treats.',
+    tags: ['shopping', 'kid-friendly', 'indoor', 'birthday'], cardType: 'shop', energy: 1,
+    duration: '45 min',
+  },
+  {
+    day: '3', time: '7:45 PM', name: 'Nintendo Store NYC',
+    desc: 'Gaming paradise for kids. Interactive displays, exclusive merchandise, birthday stop.',
+    tags: ['shopping', 'kid-friendly', 'indoor', 'birthday'], cardType: 'shop', energy: 1,
+    duration: '30 min',
+  },
+  {
+    day: '3', time: '8:15 PM', name: 'St. Patrick\'s Cathedral',
+    desc: 'Magnificent Neo-Gothic cathedral on Fifth Avenue. Stunning especially when lit at night.',
+    tags: ['culture', 'indoor', 'night'], cardType: 'culture', energy: 1,
+    duration: '30 min',
+  },
+  {
+    day: '3', time: '8:45 PM', name: 'Grand Central Terminal',
+    desc: 'Iconic Beaux-Arts terminal. The main concourse ceiling, the Whispering Gallery, and the famous clock.',
+    tags: ['must-do', 'culture', 'indoor', 'night', 'kid-friendly'], cardType: 'culture', energy: 1,
+    duration: '30 min',
+  },
+  {
+    day: '3', time: '9:15 PM', name: 'SUMMIT One Vanderbilt',
+    desc: 'Immersive observatory with glass ledges, mirrored rooms, and jaw-dropping night skyline views. Book ahead!',
+    tags: ['must-do', 'views', 'indoor', 'night', 'birthday', 'tiring'], cardType: 'views', energy: 2,
+    duration: '90 min',
+    reservation: true,
+  },
+  {
+    day: '3', time: '10:45 PM', name: 'Birthday Dinner — Junior\'s',
+    desc: 'World-famous cheesecake at Junior\'s. Try the chicken & fish dishes, then celebrate with the legendary cheesecake.',
+    tags: ['food', 'kid-friendly', 'night', 'birthday', 'must-do'], cardType: 'birthday', energy: 1,
+    duration: '60+ min',
+    foodOptions: ["Junior's Famous Cheesecake", 'Chicken dishes', 'Fish dishes'],
+  },
+  {
+    day: '3', time: '12:00 AM', name: 'Return to Hotel',
+    desc: 'End of an incredible birthday day.',
+    tags: ['rest', 'transport'], cardType: 'rest', energy: 1,
+    duration: null,
+  },
+
+  // ── DAY 4 ──
+  {
+    day: '4', time: '8:00 AM', name: 'Breakfast',
+    desc: 'Final morning breakfast. Grab something near the hotel.',
+    tags: ['food', 'kid-friendly'], cardType: 'food', energy: 1,
+    duration: '60 min',
+  },
+  {
+    day: '4', time: '11:00 AM', name: 'Hotel Checkout',
+    desc: 'Check out and leave luggage with bell desk — free to explore all day.',
+    tags: ['rest', 'transport'], cardType: 'default', energy: 1,
+    duration: null,
+  },
+  {
+    day: '4', time: '12:00 PM', name: 'DUMBO',
+    desc: 'Pebble Beach, Manhattan Bridge photo spot, Brooklyn waterfront. Best Instagram spots in NYC.',
+    tags: ['must-do', 'outdoor', 'views', 'walk-heavy', 'kid-friendly'], cardType: 'views', energy: 2,
+    duration: '75 min',
+  },
+  {
+    day: '4', time: '1:15 PM', name: 'Lunch — Brooklyn',
+    desc: 'Options: Juliana\'s Pizza (legendary) or Time Out Market (wide variety, great for families).',
+    tags: ['food', 'kid-friendly', 'must-do'], cardType: 'food', energy: 1,
+    duration: '75 min',
+    foodOptions: ["Juliana's Pizza", 'Time Out Market'],
+  },
+  {
+    day: '4', time: '2:30 PM', name: 'Walk Brooklyn Bridge',
+    desc: 'Brooklyn to Manhattan on foot. One of NYC\'s iconic experiences — sweeping views of the skyline and East River.',
+    tags: ['must-do', 'outdoor', 'walk-heavy', 'views', 'tiring', 'kid-friendly'], cardType: 'views', energy: 3,
+    duration: '90 min',
+  },
+  {
+    day: '4', time: '4:00 PM', name: 'South Street Seaport',
+    desc: 'Relaxed waterfront stop. Historic ships, waterfront dining, and views back toward Brooklyn.',
+    tags: ['outdoor', 'views', 'kid-friendly', 'rest'], cardType: 'default', energy: 1,
+    duration: '60 min',
+  },
+  {
+    day: '4', time: '5:00 PM', name: 'SoHo',
+    desc: 'Walk Broadway, Prince Street, Spring Street. Great mix of boutiques, street art, and NYC energy.',
+    tags: ['shopping', 'outdoor', 'walk-heavy', 'culture'], cardType: 'shop', energy: 2,
+    duration: '60 min',
+  },
+  {
+    day: '4', time: '6:00 PM', name: 'Greenwich Village',
+    desc: 'Charming tree-lined streets, cafes, and historic brownstones. Classic NYC neighborhood feel.',
+    tags: ['culture', 'outdoor', 'walk-heavy'], cardType: 'culture', energy: 2,
+    duration: '15 min',
+  },
+  {
+    day: '4', time: '6:15 PM', name: 'Washington Square Park',
+    desc: 'Washington Arch, street performers, NYU area. Perfect final NYC memory.',
+    tags: ['must-do', 'outdoor', 'kid-friendly', 'culture', 'views'], cardType: 'default', energy: 1,
+    duration: '30 min',
+  },
+  {
+    day: '4', time: '6:45 PM', name: 'Return to Hotel + Collect Luggage',
+    desc: 'Pick up bags from bell desk. Final goodbye to the hotel.',
+    tags: ['transport'], cardType: 'transport', energy: 1,
+    duration: '30 min',
+  },
+  {
+    day: '4', time: '7:15 PM', name: 'Depart for Airport',
+    desc: 'Head to airport. Allow plenty of time.',
+    tags: ['transport'], cardType: 'transport', energy: 2,
+    duration: null,
+  },
+  {
+    day: '4', time: '9:00 PM', name: 'Flight Home ✈️',
+    desc: 'Trip complete. Amazing memories made!',
+    tags: ['transport', 'tiring'], cardType: 'transport', energy: 3,
+    duration: null,
+  },
+];
+
+const FOOD_CHECKLIST = [
+  { label: 'NYC Bagel', cat: 'breakfast' },
+  { label: 'Egg & Cheese Sandwich', cat: 'breakfast' },
+  { label: 'NY Pizza', cat: 'lunch/dinner' },
+  { label: 'Chinatown Dumplings', cat: 'lunch/dinner' },
+  { label: 'Halal Cart Chicken & Rice', cat: 'lunch/dinner' },
+  { label: 'Italian Pasta', cat: 'lunch/dinner' },
+  { label: 'Fish Tacos', cat: 'lunch/dinner' },
+  { label: "Junior's Cheesecake", cat: 'dessert' },
+  { label: 'Black & White Cookie', cat: 'dessert' },
+];
+
+const TAG_STYLES = {
+  'must-do':     { icon: '⭐', c: '#eab308', bg: 'rgba(234,179,8,0.15)',    label: 'Must-Do' },
+  'kid-friendly':{ icon: '🧒', c: '#ec4899', bg: 'rgba(236,72,153,0.15)',  label: 'Kid-Friendly' },
+  'food':        { icon: '🍕', c: '#f59e0b', bg: 'rgba(245,158,11,0.15)',  label: 'Food' },
+  'rest':        { icon: '😴', c: '#10b981', bg: 'rgba(16,185,129,0.15)',  label: 'Rest' },
+  'walk-heavy':  { icon: '🚶', c: '#f97316', bg: 'rgba(249,115,22,0.15)',  label: 'Walk-Heavy' },
+  'views':       { icon: '📸', c: '#06b6d4', bg: 'rgba(6,182,212,0.15)',   label: 'Views' },
+  'culture':     { icon: '🏛️', c: '#8b5cf6', bg: 'rgba(139,92,246,0.15)', label: 'Culture' },
+  'shopping':    { icon: '🛍️', c: '#a78bfa', bg: 'rgba(167,139,250,0.15)','label': 'Shopping' },
+  'night':       { icon: '🌙', c: '#6366f1', bg: 'rgba(99,102,241,0.15)',  label: 'Night' },
+  'birthday':    { icon: '🎂', c: '#f43f5e', bg: 'rgba(244,63,94,0.15)',   label: 'Birthday' },
+  'outdoor':     { icon: '🌳', c: '#22c55e', bg: 'rgba(34,197,94,0.15)',   label: 'Outdoor' },
+  'indoor':      { icon: '🏠', c: '#64748b', bg: 'rgba(100,116,139,0.15)', label: 'Indoor' },
+  'tiring':      { icon: '🔥', c: '#ef4444', bg: 'rgba(239,68,68,0.15)',   label: 'High Energy' },
+  'transport':   { icon: '🚇', c: '#14b8a6', bg: 'rgba(20,184,166,0.15)', label: 'Transport' },
+};
+
+const ENERGY_LABELS = ['', 'Low', 'Moderate', 'High', 'Very High'];
+const ENERGY_CLASSES = ['', 'energy-1', 'energy-2', 'energy-3', 'energy-4'];
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+
+let activeDay = 'all';
+let activeFilters = new Set();
+let currentView = 'timeline';
+let checkedFoods = new Set();
+
+// ── RENDER ───────────────────────────────────────────────────────────────────
+
+function renderChecklist() {
+  const grid = document.getElementById('checklistGrid');
+  grid.innerHTML = FOOD_CHECKLIST.map((item, i) => `
+    <div class="checklist-item ${checkedFoods.has(i) ? 'checked' : ''}" onclick="toggleFood(${i})">
+      <div class="check-box"></div>
+      <span class="check-label">${item.label}</span>
+    </div>
+  `).join('');
+}
+
+function toggleFood(i) {
+  checkedFoods.has(i) ? checkedFoods.delete(i) : checkedFoods.add(i);
+  renderChecklist();
+}
+
+function buildTagBadge(tag) {
+  const s = TAG_STYLES[tag];
+  if (!s) return '';
+  return `<span class="tag-badge" style="background:${s.bg};color:${s.c};border-color:${s.c}33">
+    <span class="tag-icon">${s.icon}</span>${s.label}
+  </span>`;
+}
+
+function buildCard(act) {
+  const energyClass = ENERGY_CLASSES[act.energy];
+  const energyLabel = ENERGY_LABELS[act.energy];
+  const tagBadges = act.tags.map(buildTagBadge).join('');
+  const foodOpts = act.foodOptions
+    ? `<div class="food-options">${act.foodOptions.map(f => `<span class="food-chip">🍴 ${f}</span>`).join('')}</div>`
+    : '';
+  const resIcon = act.reservation ? `<span class="tag-badge" style="background:rgba(234,179,8,0.15);color:#eab308;border-color:#eab30833"><span class="tag-icon">📋</span>Book ahead</span>` : '';
+  const duration = act.duration ? `<span class="duration-badge">⏱ ${act.duration}</span>` : '';
+  const birthdayBanner = act.isBirthday ? `<div class="birthday-banner">🎂 <span>HAPPY BIRTHDAY!</span> 🎉</div>` : '';
+
+  return `
+    ${birthdayBanner}
+    <div class="activity-card card-${act.cardType}">
+      <div class="card-top">
+        <div class="card-name">${act.name}</div>
+        <div class="energy-pill ${energyClass}">${energyLabel}</div>
+      </div>
+      <div class="card-desc">${act.desc}</div>
+      ${foodOpts}
+      <div class="card-meta">${duration}${tagBadges}${resIcon}</div>
+    </div>
+  `;
+}
+
+function renderTimeline() {
+  const container = document.getElementById('timeline');
+  const daysToShow = activeDay === 'all' ? DAYS : DAYS.filter(d => d.id === activeDay);
+
+  let html = '';
+  let totalVisible = 0;
+
+  for (const day of daysToShow) {
+    const acts = ACTIVITIES.filter(a => {
+      if (a.day !== day.id) return false;
+      if (activeFilters.size === 0) return true;
+      return a.tags.some(t => activeFilters.has(t));
+    });
+
+    totalVisible += acts.length;
+
+    const actsHtml = acts.map(act => {
+      const [hour, rest] = act.time.split(':');
+      const [min, period] = rest ? rest.split(' ') : ['00', ''];
+      return `
+        <div class="activity-row" data-day="${act.day}" data-tags="${act.tags.join(',')}">
+          <div class="time-col">
+            <div class="time-text">${hour}:${min}<span class="am-pm">${period}</span></div>
+          </div>
+          <div class="dot-col">
+            <div class="timeline-dot" style="background:var(--card-dot-${act.cardType}, var(--accent))"></div>
+          </div>
+          <div class="card-col">${buildCard(act)}</div>
+        </div>
+      `;
+    }).join('');
+
+    const dayVisible = acts.length > 0;
+    html += `
+      <div class="day-section" data-day="${day.id}" style="${dayVisible ? '' : 'display:none'}">
+        <div class="day-header">
+          <div class="day-header-badge">${day.label}</div>
+          <div class="day-header-title">${day.date}</div>
+          <div class="day-header-theme">${day.theme}</div>
+        </div>
+        ${actsHtml || '<div style="padding:16px 0 8px 64px;color:var(--text-dim);font-size:12px">No activities match current filters</div>'}
+      </div>
+    `;
+  }
+
+  container.innerHTML = html;
+
+  // color dots by card type
+  const dotColors = {
+    food: 'var(--tag-food)', rest: 'var(--tag-rest)', culture: 'var(--tag-culture)',
+    views: 'var(--tag-views)', shop: 'var(--tag-shop)', night: 'var(--tag-night)',
+    birthday: 'var(--tag-birthday)', transport: 'var(--tag-transport)', default: 'var(--accent)',
+  };
+  container.querySelectorAll('.timeline-dot').forEach((dot, i) => {
+    const row = dot.closest('.activity-row');
+    if (!row) return;
+    const act = acts_for_dot(row);
+    if (act) dot.style.background = dotColors[act.cardType] || 'var(--accent)';
+  });
+
+  // update count
+  const label = activeFilters.size > 0
+    ? `Showing ${totalVisible} activities matching ${activeFilters.size} filter${activeFilters.size > 1 ? 's' : ''}`
+    : `Showing all ${totalVisible} activities`;
+  document.getElementById('resultsCount').textContent = label;
+
+  const empty = document.getElementById('emptyState');
+  empty.style.display = totalVisible === 0 ? 'block' : 'none';
+  container.style.display = totalVisible === 0 ? 'none' : 'block';
+}
+
+function acts_for_dot(row) {
+  const day = row.dataset.day;
+  const tags = row.dataset.tags ? row.dataset.tags.split(',') : [];
+  // find matching activity by day + first tag
+  return ACTIVITIES.find(a => a.day === day && a.tags[0] === tags[0]) || null;
+}
+
+// ── CONTROLS ─────────────────────────────────────────────────────────────────
+
+function setDay(day) {
+  activeDay = day;
+  document.querySelectorAll('.day-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.day === day);
+  });
+  renderTimeline();
+}
+
+function toggleFilter(chip) {
+  const tag = chip.dataset.tag;
+  const s = TAG_STYLES[tag];
+  if (activeFilters.has(tag)) {
+    activeFilters.delete(tag);
+    chip.classList.remove('active');
+    chip.style.background = '';
+    chip.style.borderColor = '';
+    chip.style.color = '';
+  } else {
+    activeFilters.add(tag);
+    chip.classList.add('active');
+    chip.style.background = s.bg;
+    chip.style.borderColor = s.c;
+    chip.style.color = s.c;
+  }
+  renderTimeline();
+}
+
+function clearFilters() {
+  activeFilters.clear();
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.classList.remove('active');
+    chip.style.background = '';
+    chip.style.borderColor = '';
+    chip.style.color = '';
+  });
+  renderTimeline();
+}
+
+function setView(view) {
+  currentView = view;
+  document.getElementById('timelineBtn').classList.toggle('active', view === 'timeline');
+  document.getElementById('gridBtn').classList.toggle('active', view === 'grid');
+  const tl = document.getElementById('timeline');
+  if (view === 'grid') {
+    tl.classList.add('grid-view');
+  } else {
+    tl.classList.remove('grid-view');
+  }
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+
+renderTimeline();
+renderChecklist();
+</script>
+</body>
+</html>
