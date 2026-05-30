@@ -6,309 +6,375 @@
 <title>NYC · June 2026</title>
 <style>
 :root {
-  --bg: #080d18;
-  --s1: #0f1929;
-  --s2: #162035;
-  --s3: #1d2a45;
-  --border: #253350;
-  --text: #e2e8f4;
-  --muted: #6b84a8;
-  --dim: #3a5070;
-  --accent: #4f9cf9;
-  --accentbg: rgba(79,156,249,0.12);
-  --r: 10px;
-  --c-must:#eab308; --c-kids:#ec4899; --c-food:#f59e0b;
-  --c-rest:#10b981; --c-walk:#f97316; --c-views:#06b6d4;
-  --c-cult:#8b5cf6; --c-shop:#a78bfa; --c-night:#6366f1;
-  --c-bday:#f43f5e; --c-out:#22c55e; --c-in:#64748b;
-  --c-tire:#ef4444; --c-move:#14b8a6;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;min-height:100vh}
+  --bg:     #eef1f8;
+  --card:   #ffffff;
+  --s2:     #f4f6fc;
+  --s3:     #e8edf8;
+  --border: #d0d9ee;
+  --text:   #1a2540;
+  --sub:    #4a6080;
+  --dim:    #8fa3c0;
+  --accent: #2563eb;
+  --abg:    rgba(37,99,235,0.07);
+  --r:      12px;
 
-/* ── HEADER ── */
-.hdr{
-  background:linear-gradient(180deg,#0c1528 0%,var(--bg) 100%);
-  padding:16px 16px 0;
-  position:sticky;top:0;z-index:100;
-  border-bottom:1px solid var(--border);
-}
-.hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.trip-name{font-size:15px;font-weight:700;color:#fff}
-.trip-sub{font-size:11px;color:var(--muted);margin-top:1px}
-.ftoggle{
-  display:flex;align-items:center;gap:5px;
-  padding:5px 11px;background:var(--s2);
-  border:1px solid var(--border);border-radius:20px;
-  cursor:pointer;font-size:11px;font-weight:600;color:var(--muted);
-  transition:all 0.15s;user-select:none;
-}
-.ftoggle:hover{border-color:var(--accent);color:var(--text)}
-.ftoggle.on{border-color:var(--accent);color:var(--accent);background:var(--accentbg)}
-.fcnt{
-  background:var(--accent);color:#fff;font-size:9px;font-weight:800;
-  width:15px;height:15px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
+  /* tag palette */
+  --t-must:#b45309;  --t-must-bg:#fef3c7;
+  --t-kids:#be185d;  --t-kids-bg:#fce7f3;
+  --t-food:#b45309;  --t-food-bg:#fff7ed;
+  --t-rest:#065f46;  --t-rest-bg:#d1fae5;
+  --t-walk:#c2410c;  --t-walk-bg:#ffedd5;
+  --t-views:#0e7490; --t-views-bg:#cffafe;
+  --t-cult:#6d28d9;  --t-cult-bg:#ede9fe;
+  --t-shop:#7c3aed;  --t-shop-bg:#f5f3ff;
+  --t-night:#4338ca; --t-night-bg:#e0e7ff;
+  --t-bday:#be123c;  --t-bday-bg:#ffe4e6;
+  --t-out:#166534;   --t-out-bg:#dcfce7;
+  --t-in:#374151;    --t-in-bg:#f3f4f6;
+  --t-tire:#b91c1c;  --t-tire-bg:#fee2e2;
+  --t-move:#0f766e;  --t-move-bg:#ccfbf1;
 }
 
-/* ── FILTER DRAWER ── */
-.fdrawer{
-  background:var(--s1);border:1px solid var(--border);
-  border-radius:var(--r);margin:0 16px 10px;
-  padding:12px;display:none;
-}
-.fdrawer.open{display:block}
-.frow{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
-.fc{
-  display:flex;align-items:center;gap:3px;
-  padding:3px 9px;border-radius:20px;
-  font-size:11px;font-weight:600;cursor:pointer;
-  border:1.5px solid var(--border);color:var(--muted);
-  background:var(--s2);transition:all 0.12s;user-select:none;white-space:nowrap;
-}
-.fc.on{border-color:currentColor}
-.fclr{margin-left:auto;font-size:11px;color:var(--dim);cursor:pointer;padding:3px 5px;text-decoration:underline;text-underline-offset:2px}
-.fclr:hover{color:var(--muted)}
-
-/* ── ENERGY LEGEND (inside drawer) ── */
-.eleg{
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  margin-top:10px;padding-top:10px;border-top:1px solid var(--border);
-  font-size:10px;color:var(--dim);
-}
-.eleg-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:3px}
-
-/* ── DAY TABS ── */
-.dtabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;padding-bottom:0}
-.dtabs::-webkit-scrollbar{display:none}
-.dt{
-  flex-shrink:0;padding:8px 14px;cursor:pointer;
-  font-size:12px;font-weight:600;color:var(--dim);
-  border-bottom:2px solid transparent;transition:all 0.15s;
-  white-space:nowrap;text-align:center;
-}
-.dt .dtsub{font-size:10px;font-weight:400;color:var(--dim);margin-top:1px}
-.dt:hover{color:var(--muted)}
-.dt.active{color:var(--accent);border-bottom-color:var(--accent)}
-.dt.active .dtsub{color:var(--muted)}
-
-/* ── MAIN ── */
-.main{max-width:680px;margin:0 auto;padding:14px 14px 80px}
-
-/* ── OVERVIEW CARDS ── */
-.overview{display:grid;gap:8px}
-.day-card{
-  background:var(--s1);border:1px solid var(--border);
-  border-radius:14px;padding:14px 14px 12px;
-  cursor:pointer;transition:all 0.15s;position:relative;overflow:hidden;
-}
-.day-card::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;
-  width:3px;border-radius:2px 0 0 2px;
-}
-.day-card:nth-child(1)::before{background:var(--accent)}
-.day-card:nth-child(2)::before{background:var(--c-views)}
-.day-card:nth-child(3)::before{background:var(--c-bday)}
-.day-card:nth-child(4)::before{background:var(--c-out)}
-.day-card:hover{border-color:rgba(79,156,249,0.4);background:var(--s2)}
-
-.dc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px}
-.dc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
-.dc-date{font-size:10px;color:var(--dim);margin-top:1px}
-.dc-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:2px}
-.dc-theme{font-size:11px;color:var(--muted)}
-.dc-go{font-size:16px;color:var(--dim);flex-shrink:0;margin-top:2px}
-
-/* ── FLOW STRIP ── */
-.day-flow{
-  display:flex;flex-wrap:wrap;align-items:center;
-  gap:5px 4px;margin-top:12px;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  min-height: 100vh;
 }
 
-.df-chip{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:5px 11px;white-space:nowrap;
-  background:var(--s2);border:1px solid var(--border);border-radius:20px;
+/* ── HEADER ─────────────────────────────────────────── */
+.hdr {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px 0;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
 }
-.df-chip-icon{font-size:13px;line-height:1}
-.df-chip-time{font-size:10px;font-weight:700;color:var(--dim)}
-.df-chip-name{font-size:11px;color:var(--text);font-weight:500}
-
-.df-conn{
-  display:inline-flex;align-items:center;gap:3px;
-  font-size:10px;color:var(--dim);
-  white-space:nowrap;padding:0 1px;
+.hdr-top {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 10px;
 }
-.df-conn-icon{font-size:11px}
-.df-conn-text{font-size:10px}
-.df-conn-arrow{color:var(--border);font-size:10px}
+.trip-name { font-size: 16px; font-weight: 700; color: var(--text); }
+.trip-sub  { font-size: 11px; color: var(--dim); margin-top: 1px; }
 
-.dc-meta{
-  display:flex;gap:10px;margin-top:8px;
-  font-size:10px;color:var(--dim);
+.ftoggle {
+  display: flex; align-items: center; gap: 5px;
+  padding: 6px 12px; background: var(--s2);
+  border: 1px solid var(--border); border-radius: 20px;
+  cursor: pointer; font-size: 12px; font-weight: 600;
+  color: var(--sub); transition: all 0.15s; user-select: none;
 }
-.dc-meta span{display:flex;align-items:center;gap:3px}
-
-/* ── DAY DETAIL VIEW ── */
-.dview{display:none}
-.dview.active{display:block}
-
-.dvtop{
-  display:flex;align-items:center;gap:10px;margin-bottom:12px;
-  padding-bottom:12px;border-bottom:1px solid var(--border);
-}
-.dvbadge{
-  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;
-  color:var(--accent);background:var(--accentbg);
-  border:1px solid rgba(79,156,249,0.25);
-  padding:3px 10px;border-radius:20px;white-space:nowrap;
-}
-.dvname{font-size:14px;font-weight:700;color:#fff}
-.dvdate{font-size:11px;color:var(--muted)}
-
-/* ── TIMELINE ── */
-.tl{position:relative}
-.tl::before{
-  content:'';position:absolute;
-  left:38px;top:0;bottom:0;width:1px;
-  background:linear-gradient(to bottom,transparent,var(--border) 3%,var(--border) 97%,transparent);
+.ftoggle:hover { border-color: var(--accent); color: var(--accent); }
+.ftoggle.on    { border-color: var(--accent); color: var(--accent); background: var(--abg); }
+.fcnt {
+  background: var(--accent); color: #fff;
+  font-size: 10px; font-weight: 800;
+  width: 16px; height: 16px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
 }
 
-.arow{display:flex;position:relative}
-.arow.out{display:none!important}
-
-/* time column */
-.atime{
-  width:38px;flex-shrink:0;
-  padding-top:9px;text-align:right;padding-right:11px;
+/* ── FILTER DRAWER ──────────────────────────────────── */
+.fdrawer {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: var(--r); margin: 10px 16px 4px;
+  padding: 12px; display: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
-.at{font-size:9px;font-weight:700;color:var(--dim);line-height:1.2;white-space:nowrap}
-.at em{font-style:normal;display:block;font-size:8px}
+.fdrawer.open { display: block; }
+.frow { display: flex; flex-wrap: wrap; gap: 6px; }
+.fc {
+  display: flex; align-items: center; gap: 4px;
+  padding: 4px 10px; border-radius: 20px;
+  font-size: 12px; font-weight: 600; cursor: pointer;
+  border: 1.5px solid var(--border); color: var(--sub);
+  background: var(--s2); transition: all 0.12s;
+  user-select: none; white-space: nowrap;
+}
+.fc.on { border-color: currentColor; }
+.fclr {
+  margin-left: auto; font-size: 11px; color: var(--dim);
+  cursor: pointer; padding: 4px 6px;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.fclr:hover { color: var(--sub); }
 
-/* dot */
-.adotcol{width:0;position:relative;flex-shrink:0}
-.adot{
-  position:absolute;top:12px;left:-5px;
-  width:10px;height:10px;border-radius:50%;
-  border:2px solid var(--bg);z-index:2;
+.eleg {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--sub);
+}
+.eleg-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 3px; vertical-align: middle; }
+
+/* ── DAY TABS ───────────────────────────────────────── */
+.dtabs {
+  display: flex; gap: 0;
+  overflow-x: auto; scrollbar-width: none;
+}
+.dtabs::-webkit-scrollbar { display: none; }
+.dt {
+  flex-shrink: 0; padding: 10px 16px;
+  cursor: pointer; font-size: 13px; font-weight: 600;
+  color: var(--dim); border-bottom: 2px solid transparent;
+  transition: all 0.15s; white-space: nowrap; text-align: center;
+}
+.dt .dtsub { font-size: 10px; font-weight: 400; color: var(--dim); margin-top: 1px; }
+.dt:hover  { color: var(--sub); }
+.dt.active { color: var(--accent); border-bottom-color: var(--accent); }
+.dt.active .dtsub { color: var(--sub); }
+
+/* ── MAIN LAYOUT ────────────────────────────────────── */
+.main { max-width: 680px; margin: 0 auto; padding: 16px 14px 80px; }
+
+/* ── OVERVIEW DAY CARDS ─────────────────────────────── */
+.overview { display: grid; gap: 12px; }
+.day-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 16px;
+  cursor: pointer; transition: all 0.15s;
+  position: relative; overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.day-card::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px; border-radius: 2px 0 0 2px;
+}
+.day-card:nth-child(1)::before { background: #2563eb; }
+.day-card:nth-child(2)::before { background: #0e7490; }
+.day-card:nth-child(3)::before { background: #be123c; }
+.day-card:nth-child(4)::before { background: #166534; }
+.day-card:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.12);
+  transform: translateY(-1px);
+}
+.dc-top  { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.dc-label{ font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); }
+.dc-title{ font-size: 17px; font-weight: 700; color: var(--text); margin: 2px 0; }
+.dc-theme{ font-size: 13px; color: var(--sub); }
+.dc-go   { font-size: 20px; color: var(--dim); flex-shrink: 0; margin-top: 4px; }
+
+/* flow strip */
+.day-flow {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 5px; margin-top: 14px;
+}
+.df-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; white-space: nowrap;
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: 20px;
+}
+.df-chip-icon { font-size: 14px; line-height: 1; }
+.df-chip-time { font-size: 11px; font-weight: 700; color: var(--dim); }
+.df-chip-name { font-size: 12px; color: var(--text); font-weight: 500; }
+.df-conn {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 11px; color: var(--dim); white-space: nowrap; padding: 0 1px;
+}
+.df-conn-icon { font-size: 12px; }
+.df-conn-arrow{ color: var(--border); font-size: 11px; }
+
+.dc-meta { display: flex; gap: 12px; margin-top: 10px; font-size: 11px; color: var(--dim); }
+.dc-meta span { display: flex; align-items: center; gap: 3px; }
+
+/* ── DAY DETAIL VIEW ────────────────────────────────── */
+.dview { display: none; }
+.dview.active { display: block; }
+
+.dvtop {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.dvbadge {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--accent); background: var(--abg);
+  border: 1px solid rgba(37,99,235,0.2);
+  padding: 4px 12px; border-radius: 20px; white-space: nowrap;
+}
+.dvname { font-size: 16px; font-weight: 700; color: var(--text); }
+.dvdate { font-size: 12px; color: var(--sub); }
+
+/* ── TIMELINE ───────────────────────────────────────── */
+.tl { position: relative; }
+.tl::before {
+  content: ''; position: absolute;
+  left: 44px; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--border) 3%, var(--border) 97%, transparent);
 }
 
-/* card column */
-.acol{flex:1;padding-left:12px}
+.arow { display: flex; position: relative; margin-bottom: 0; }
+.arow.out { display: none !important; }
 
-/* ── ACTIVITY CARD ── */
-.acard{
-  border-radius:var(--r);border:1px solid var(--border);
-  background:var(--s1);margin-bottom:0;
-  overflow:hidden;cursor:pointer;
-  transition:border-color 0.15s,background 0.15s;
+.atime {
+  width: 44px; flex-shrink: 0;
+  padding-top: 16px; text-align: right; padding-right: 12px;
 }
-.acard:hover{border-color:var(--s3);background:var(--s2)}
-.acard.exp{border-color:var(--border)}
+.at { font-size: 11px; font-weight: 700; color: var(--sub); line-height: 1.2; white-space: nowrap; }
+.at em { font-style: normal; display: block; font-size: 10px; color: var(--dim); }
 
-.aface{
-  display:flex;align-items:center;gap:8px;
-  padding:8px 10px;min-height:36px;
-}
-.aname{flex:1;font-size:13px;font-weight:600;color:var(--text);line-height:1.25}
-.aicons{display:flex;align-items:center;gap:2px;flex-shrink:0}
-.tic{font-size:11px;line-height:1;opacity:0.8}
-.edot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-left:3px}
-.e1{background:#10b981}.e2{background:#eab308}.e3{background:#f97316}.e4{background:#ef4444}
-.chev{font-size:10px;color:var(--dim);margin-left:3px;transition:transform 0.18s;flex-shrink:0}
-.acard.exp .chev{transform:rotate(180deg)}
-
-/* expanded body */
-.abody{display:none;padding:0 10px 10px;border-top:1px solid var(--border)}
-.acard.exp .abody{display:block}
-.abody-in{padding-top:9px}
-.adesc{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:7px}
-.ameta{display:flex;align-items:center;flex-wrap:wrap;gap:4px}
-.mpill{font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;border:1px solid transparent}
-.mdur{background:var(--s3);color:var(--muted);border-color:var(--border)}
-.mbook{background:rgba(234,179,8,0.1);color:#eab308;border-color:rgba(234,179,8,0.3)}
-.fopts{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
-.fopt{font-size:11px;color:var(--c-food);background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);border-radius:6px;padding:2px 7px}
-.bdayflash{
-  background:linear-gradient(135deg,rgba(244,63,94,0.15),rgba(99,102,241,0.15));
-  border:1px solid rgba(244,63,94,0.35);border-radius:7px;
-  text-align:center;font-size:13px;font-weight:800;
-  color:#fff;padding:7px;margin-bottom:7px;
+.adotcol { width: 0; position: relative; flex-shrink: 0; }
+.adot {
+  position: absolute; top: 18px; left: -6px;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2.5px solid var(--bg); z-index: 2;
+  box-shadow: 0 0 0 1px var(--border);
 }
 
-/* ── TRANSPORT CONNECTOR ── */
-.tconn-row .atime{opacity:0;pointer-events:none}
-.tconn-row .adotcol{opacity:0}
-.tc{
-  height:20px;display:flex;align-items:center;padding-left:0;
-}
-.tcpill{
-  display:inline-flex;align-items:center;gap:4px;
-  font-size:10px;font-weight:500;color:var(--dim);
-  background:var(--bg);
-  border:1px dashed var(--border);
-  border-radius:20px;padding:2px 9px;
-  white-space:nowrap;line-height:1;
-  transition:color 0.12s;
-}
-.tcpill:hover{color:var(--muted)}
-.tcicon{font-size:11px}
+.acol { flex: 1; padding-left: 14px; }
 
-/* ── EMPTY ── */
-.empty{text-align:center;padding:40px 16px;color:var(--dim)}
-.empty-ico{font-size:32px;margin-bottom:8px}
-.empty-txt{font-size:13px;font-weight:600;color:var(--muted)}
-.empty-sub{font-size:11px;margin-top:3px}
+/* ── ACTIVITY CARD ──────────────────────────────────── */
+.acard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  margin-bottom: 0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  position: relative;
+}
+/* left accent strip */
+.acard-bar {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px; border-radius: 2px 0 0 2px;
+}
 
-/* ── BOTTOM PANELS ── */
-.panels{margin-top:20px;display:flex;flex-direction:column;gap:10px}
-.panel{background:var(--s1);border:1px solid var(--border);border-radius:14px;overflow:hidden}
-.phdr{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 14px;cursor:pointer;font-size:12px;font-weight:700;user-select:none;
-}
-.phdr:hover{background:var(--s2)}
-.pchev{font-size:11px;color:var(--dim);transition:transform 0.18s}
-.panel.open .pchev{transform:rotate(180deg)}
-.pbody{display:none;padding:0 14px 14px}
-.panel.open .pbody{display:block}
+.acard-inner { padding: 14px 14px 12px 18px; }
 
-.cl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:6px}
-.cl-item{
-  display:flex;align-items:center;gap:7px;
-  padding:6px 9px;background:var(--s2);
-  border:1px solid var(--border);border-radius:8px;
-  cursor:pointer;transition:all 0.12s;
-  font-size:11px;font-weight:500;color:var(--muted);
+.aname {
+  font-size: 15px; font-weight: 700; color: var(--text);
+  line-height: 1.3; margin-bottom: 6px;
 }
-.cl-item:hover{border-color:var(--c-food)}
-.cl-item.chk{border-color:var(--c-food);background:rgba(245,158,11,0.08);color:var(--text)}
-.cl-box{
-  width:14px;height:14px;border:2px solid var(--border);border-radius:4px;
-  flex-shrink:0;display:flex;align-items:center;justify-content:center;
-  font-size:9px;font-weight:900;color:transparent;transition:all 0.12s;
+.adesc {
+  font-size: 13px; color: var(--sub); line-height: 1.6;
+  margin-bottom: 10px;
 }
-.cl-item.chk .cl-box{background:var(--c-food);border-color:var(--c-food);color:#fff}
+.fopts { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+.fopt {
+  font-size: 12px; font-weight: 500;
+  padding: 3px 10px; border-radius: 6px;
+  background: #fff7ed; color: #92400e;
+  border: 1px solid #fed7aa;
+}
 
-.res-list{display:flex;flex-direction:column;gap:5px}
-.res-item{
-  display:flex;align-items:center;gap:7px;
-  padding:6px 9px;background:var(--s2);
-  border:1px solid var(--border);border-radius:8px;
-  font-size:11px;color:var(--muted);
+.ameta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.mpill {
+  font-size: 11px; font-weight: 600;
+  padding: 3px 9px; border-radius: 20px; border: 1px solid transparent;
 }
-.res-n{
-  width:17px;height:17px;border-radius:50%;
-  background:rgba(234,179,8,0.12);border:1px solid rgba(234,179,8,0.3);
-  display:flex;align-items:center;justify-content:center;
-  font-size:9px;font-weight:800;color:#eab308;flex-shrink:0;
-}
-.res-opt{margin-left:auto;font-size:10px;color:var(--dim);font-style:italic}
+.mdur  { background: var(--s2); color: var(--sub); border-color: var(--border); }
+.mbook { background: #fef9c3; color: #854d0e; border-color: #fde68a; }
 
-@media(max-width:480px){
-  .dc-title{font-size:13px}
-  .aname{font-size:12px}
+/* tag chips */
+.atags { display: flex; flex-wrap: wrap; gap: 5px; }
+.atag {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: 20px;
+}
+
+/* energy bar */
+.aenergy {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 8px; font-size: 11px; color: var(--dim);
+}
+.ebar {
+  display: flex; gap: 2px;
+}
+.ebar-seg {
+  width: 18px; height: 4px; border-radius: 2px;
+  background: var(--s3);
+}
+.ebar-seg.lit { }
+
+.bdayflash {
+  background: linear-gradient(135deg, #ffe4e6, #f3e8ff);
+  border: 1px solid #fca5a5; border-radius: 8px;
+  text-align: center; font-size: 16px; font-weight: 800;
+  color: var(--text); padding: 10px; margin-bottom: 12px;
+}
+
+/* ── TRANSPORT CONNECTOR ────────────────────────────── */
+.tconn-row .atime   { opacity: 0; pointer-events: none; }
+.tconn-row .adotcol { opacity: 0; }
+.tc { height: 28px; display: flex; align-items: center; }
+.tcpill {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 500; color: var(--sub);
+  background: var(--card); border: 1px dashed var(--border);
+  border-radius: 20px; padding: 4px 12px;
+  white-space: nowrap;
+}
+.tcicon { font-size: 13px; }
+
+/* ── EMPTY STATE ────────────────────────────────────── */
+.empty { text-align: center; padding: 48px 16px; color: var(--dim); }
+.empty-ico { font-size: 36px; margin-bottom: 8px; }
+.empty-txt { font-size: 14px; font-weight: 600; color: var(--sub); }
+.empty-sub { font-size: 12px; margin-top: 3px; }
+
+/* ── PANELS (overview only) ─────────────────────────── */
+.panels { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+.panel {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.phdr {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 13px 16px; cursor: pointer;
+  font-size: 13px; font-weight: 700; user-select: none;
+}
+.phdr:hover { background: var(--s2); }
+.pchev { font-size: 12px; color: var(--dim); transition: transform 0.18s; }
+.panel.open .pchev { transform: rotate(180deg); }
+.pbody { display: none; padding: 0 16px 16px; }
+.panel.open .pbody { display: block; }
+
+.cl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 7px; }
+.cl-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; background: var(--s2);
+  border: 1.5px solid var(--border); border-radius: 8px;
+  cursor: pointer; transition: all 0.12s;
+  font-size: 12px; font-weight: 500; color: var(--sub);
+}
+.cl-item:hover { border-color: #f59e0b; }
+.cl-item.chk   { border-color: #f59e0b; background: #fff7ed; color: var(--text); }
+.cl-box {
+  width: 15px; height: 15px; border: 2px solid var(--border);
+  border-radius: 4px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 900; color: transparent; transition: all 0.12s;
+}
+.cl-item.chk .cl-box { background: #f59e0b; border-color: #f59e0b; color: #fff; }
+
+.res-list { display: flex; flex-direction: column; gap: 6px; }
+.res-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; background: var(--s2);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 12px; color: var(--sub);
+}
+.res-n {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #fef9c3; border: 1px solid #fde68a;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800; color: #854d0e; flex-shrink: 0;
+}
+.res-opt { margin-left: auto; font-size: 10px; color: var(--dim); font-style: italic; }
+
+@media(max-width: 480px) {
+  .dc-title { font-size: 15px; }
+  .aname    { font-size: 14px; }
+  .adesc    { font-size: 13px; }
+  .main     { padding: 12px 10px 80px; }
+  .acard-inner { padding: 12px 12px 10px 16px; }
 }
 </style>
 </head>
@@ -346,33 +412,35 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 
 <div class="main">
+  <!-- OVERVIEW -->
   <div id="view-overview" class="dview active">
     <div class="overview" id="ovcards"></div>
     <div class="panels">
-    <div class="panel" id="panel-food">
-      <div class="phdr" onclick="togglePanel('food')">
-        <span>🍽️ NYC Food Checklist</span><span class="pchev">▼</span>
+      <div class="panel" id="panel-food">
+        <div class="phdr" onclick="togglePanel('food')">
+          <span>🍽️ NYC Food Checklist</span><span class="pchev">▼</span>
+        </div>
+        <div class="pbody"><div class="cl-grid" id="clgrid"></div></div>
       </div>
-      <div class="pbody"><div class="cl-grid" id="clgrid"></div></div>
-    </div>
-    <div class="panel" id="panel-res">
-      <div class="phdr" onclick="togglePanel('res')">
-        <span>📋 Reservations to Make</span><span class="pchev">▼</span>
-      </div>
-      <div class="pbody">
-        <div class="res-list">
-          <div class="res-item"><div class="res-n">1</div> Statue of Liberty Ferry</div>
-          <div class="res-item"><div class="res-n">2</div> One World Observatory</div>
-          <div class="res-item"><div class="res-n">3</div> SUMMIT One Vanderbilt</div>
-          <div class="res-item"><div class="res-n">4</div> The Metropolitan Museum of Art</div>
-          <div class="res-item"><div class="res-n">5</div> Carmine's<span class="res-opt">optional</span></div>
-          <div class="res-item"><div class="res-n">6</div> Junior's Restaurant<span class="res-opt">optional · birthday dinner</span></div>
+      <div class="panel" id="panel-res">
+        <div class="phdr" onclick="togglePanel('res')">
+          <span>📋 Reservations to Make</span><span class="pchev">▼</span>
+        </div>
+        <div class="pbody">
+          <div class="res-list">
+            <div class="res-item"><div class="res-n">1</div> Statue of Liberty Ferry</div>
+            <div class="res-item"><div class="res-n">2</div> One World Observatory</div>
+            <div class="res-item"><div class="res-n">3</div> SUMMIT One Vanderbilt</div>
+            <div class="res-item"><div class="res-n">4</div> The Metropolitan Museum of Art</div>
+            <div class="res-item"><div class="res-n">5</div> Carmine's<span class="res-opt">optional</span></div>
+            <div class="res-item"><div class="res-n">6</div> Junior's Restaurant<span class="res-opt">optional · birthday dinner</span></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </div><!-- end view-overview -->
 
+  <!-- DAY VIEWS -->
   <div id="view-d1" class="dview"></div>
   <div id="view-d2" class="dview"></div>
   <div id="view-d3" class="dview"></div>
@@ -386,31 +454,34 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 </div>
 
 <script>
-// ── TAGS ──────────────────────────────────────────────────────────────────────
+// ── TAGS ──────────────────────────────────────────────
 const TAGS = {
-  must:  { icon:'⭐', label:'Must-Do',      c:'#eab308' },
-  kids:  { icon:'🧒', label:'Kid-Friendly', c:'#ec4899' },
-  food:  { icon:'🍕', label:'Food',         c:'#f59e0b' },
-  rest:  { icon:'😴', label:'Rest',         c:'#10b981' },
-  walk:  { icon:'🚶', label:'Walk-Heavy',   c:'#f97316' },
-  views: { icon:'📸', label:'Views',        c:'#06b6d4' },
-  cult:  { icon:'🏛️', label:'Culture',     c:'#8b5cf6' },
-  shop:  { icon:'🛍️', label:'Shopping',    c:'#a78bfa' },
-  night: { icon:'🌙', label:'Night',        c:'#6366f1' },
-  bday:  { icon:'🎂', label:'Birthday',     c:'#f43f5e' },
-  out:   { icon:'🌳', label:'Outdoor',      c:'#22c55e' },
-  in:    { icon:'🏠', label:'Indoor',       c:'#64748b' },
-  tire:  { icon:'🔥', label:'High Energy',  c:'#ef4444' },
-  move:  { icon:'🚇', label:'Transport',    c:'#14b8a6' },
+  must:  { icon:'⭐', label:'Must-Do',      c:'#b45309', bg:'#fef3c7' },
+  kids:  { icon:'🧒', label:'Kid-Friendly', c:'#be185d', bg:'#fce7f3' },
+  food:  { icon:'🍕', label:'Food',         c:'#b45309', bg:'#fff7ed' },
+  rest:  { icon:'😴', label:'Rest',         c:'#065f46', bg:'#d1fae5' },
+  walk:  { icon:'🚶', label:'Walk-Heavy',   c:'#c2410c', bg:'#ffedd5' },
+  views: { icon:'📸', label:'Views',        c:'#0e7490', bg:'#cffafe' },
+  cult:  { icon:'🏛️', label:'Culture',     c:'#6d28d9', bg:'#ede9fe' },
+  shop:  { icon:'🛍️', label:'Shopping',    c:'#7c3aed', bg:'#f5f3ff' },
+  night: { icon:'🌙', label:'Night',        c:'#4338ca', bg:'#e0e7ff' },
+  bday:  { icon:'🎂', label:'Birthday',     c:'#be123c', bg:'#ffe4e6' },
+  out:   { icon:'🌳', label:'Outdoor',      c:'#166534', bg:'#dcfce7' },
+  in:    { icon:'🏠', label:'Indoor',       c:'#374151', bg:'#f3f4f6' },
+  tire:  { icon:'🔥', label:'High Energy',  c:'#b91c1c', bg:'#fee2e2' },
+  move:  { icon:'🚇', label:'Transport',    c:'#0f766e', bg:'#ccfbf1' },
 };
 
 const DOT_C = {
-  food:'#f59e0b', rest:'#10b981', cult:'#8b5cf6',
-  views:'#06b6d4', shop:'#a78bfa', night:'#6366f1',
-  bday:'#f43f5e', move:'#14b8a6', default:'#4f9cf9',
+  food:'#f59e0b', rest:'#10b981', cult:'#7c3aed',
+  views:'#0891b2', shop:'#8b5cf6', night:'#6366f1',
+  bday:'#f43f5e',  move:'#14b8a6', default:'#2563eb',
 };
 
-// ── DATA ──────────────────────────────────────────────────────────────────────
+const ENERGY_LABEL = ['','Low energy','Moderate energy','High energy','Very high energy'];
+const ENERGY_C     = ['','#10b981','#eab308','#f97316','#ef4444'];
+
+// ── DATA ──────────────────────────────────────────────
 const ACTS = [
   // DAY 1
   { day:'1', time:'9:00',  ap:'AM', name:'Arrive in NYC',              tags:['move'],                    dot:'move',    energy:1, desc:'Land and make your way toward Lower Manhattan.',
@@ -423,13 +494,13 @@ const ACTS = [
     tn:{i:'🚶',t:'Walk · ~3 min'} },
   { day:'1', time:'12:15', ap:'PM', name:'Lunch',                      tags:['food','kids','in'],        dot:'food',    energy:1, desc:'Quick and fresh options nearby.', fo:['Eataly Downtown','Dig','Sweetgreen'],
     tn:{i:'🚶',t:'Walk · ~3 min'} },
-  { day:'1', time:'1:15',  ap:'PM', name:'One World Observatory',      tags:['must','kids','views','in','tire'],dot:'views',energy:2, desc:'1,776 ft up — 360° panoramic views. Sky Portal glass floor, SkyPod experience.', dur:'90 min', res:true,
+  { day:'1', time:'1:15',  ap:'PM', name:'One World Observatory',      tags:['must','kids','views','in','tire'],dot:'views',energy:2, desc:'1,776 ft up — 360° panoramic views. Sky Portal glass floor, SkyPod elevator experience.', dur:'90 min', res:true,
     tn:{i:'🚶',t:'Walk · ~10 min'} },
   { day:'1', time:'2:45',  ap:'PM', name:'Financial District Walk',    tags:['cult','out','walk','kids'],dot:'cult',    energy:2, desc:'Wall Street, NY Stock Exchange exterior, Trinity Church, Charging Bull.', dur:'45 min',
     tn:{i:'🚶',t:'Walk · ~10 min'} },
   { day:'1', time:'3:30',  ap:'PM', name:'Hotel Check-In + Rest',      tags:['rest','in'],               dot:'rest',    energy:1, desc:'Settle in. Kids rest. Critical recovery after the travel day.', dur:'2 hrs',
     tn:{i:'🚶',t:'Walk · ~5 min'} },
-  { day:'1', time:'5:45',  ap:'PM', name:'Stone Street',               tags:['cult','out','night'],      dot:'night',   energy:1, desc:"One of NYC's oldest cobblestone streets. Charming evening atmosphere.", dur:'45 min',
+  { day:'1', time:'5:45',  ap:'PM', name:'Stone Street',               tags:['cult','out','night'],      dot:'night',   energy:1, desc:"One of NYC's oldest cobblestone streets. Charming evening atmosphere with outdoor dining.", dur:'45 min',
     tn:{i:'🚶',t:'Walk · ~2 min'} },
   { day:'1', time:'6:30',  ap:'PM', name:'Dinner',                     tags:['food','kids','night','in'],dot:'food',    energy:1, desc:'Classic NYC waterfront dining.', fo:["Adrienne's Pizza Bar","Industry Kitchen"], dur:'90 min',
     tn:{i:'🚇',t:'Subway to 59th St · ~30 min'} },
@@ -438,60 +509,60 @@ const ACTS = [
   { day:'1', time:'10:00', ap:'PM', name:'Return to Hotel',            tags:['rest'],                    dot:'rest',    energy:1, desc:'Early night. Big day tomorrow.' },
 
   // DAY 2
-  { day:'2', time:'7:30',  ap:'AM', name:'Breakfast · Bagels',         tags:['food','kids'],             dot:'food',    energy:1, desc:'Everything bagel with lox, or egg & cheese. Essential NYC breakfast.', fo:["Leo's Bagels","Liberty Bagels"], dur:'60 min',
+  { day:'2', time:'7:30',  ap:'AM', name:'Breakfast · Bagels',         tags:['food','kids'],             dot:'food',    energy:1, desc:'Everything bagel with lox, or egg & cheese. An essential NYC breakfast.', fo:["Leo's Bagels","Liberty Bagels"], dur:'60 min',
     tn:{i:'🚶',t:'Walk to Battery Park · ~10 min'} },
-  { day:'2', time:'8:30',  ap:'AM', name:'Walk to Battery Park',       tags:['out','walk'],              dot:'default', energy:1, desc:'Pleasant morning walk along the waterfront to catch the ferry.', dur:'15 min',
+  { day:'2', time:'8:30',  ap:'AM', name:'Walk to Battery Park',       tags:['out','walk'],              dot:'default', energy:1, desc:'Pleasant morning waterfront walk to catch the Statue of Liberty ferry.', dur:'15 min',
     tn:{i:'⛴️',t:'Statue of Liberty Ferry · ~20 min'} },
-  { day:'2', time:'9:00',  ap:'AM', name:'Statue of Liberty + Ellis Island',tags:['must','kids','cult','out','views','tire','walk'],dot:'cult',energy:3, desc:'Ferry to Liberty Island → grounds & museum → Ellis Island immigration museum. Iconic.', dur:'4 hrs', res:true,
-    tn:{i:'⛴️',t:'Ferry back · ~20 min'} },
+  { day:'2', time:'9:00',  ap:'AM', name:'Statue of Liberty + Ellis Island',tags:['must','kids','cult','out','views','tire','walk'],dot:'cult',energy:3, desc:'Ferry to Liberty Island → explore grounds and museum → Ellis Island immigration museum. A truly iconic experience.', dur:'4 hrs', res:true,
+    tn:{i:'⛴️',t:'Ferry back to Battery Park · ~20 min'} },
   { day:'2', time:'1:15',  ap:'PM', name:'Lunch',                      tags:['food','kids','in'],        dot:'food',    energy:1, desc:'Simple lunch after a big morning out on the water.', fo:['Urban Cove','Shake Shack'], dur:'60 min',
     tn:{i:'🚇',t:'Subway · ~15 min'} },
-  { day:'2', time:'2:30',  ap:'PM', name:'Chinatown',                  tags:['cult','out','walk','kids'],dot:'cult',    energy:2, desc:'Vibrant streets, street food, bubble tea, and energy unlike anywhere else.', dur:'30 min',
+  { day:'2', time:'2:30',  ap:'PM', name:'Chinatown',                  tags:['cult','out','walk','kids'],dot:'cult',    energy:2, desc:'Vibrant streets, street food, bubble tea, and energy unlike anywhere else in the city.', dur:'30 min',
     tn:{i:'🚶',t:'Walk · ~5 min'} },
-  { day:'2', time:'3:00',  ap:'PM', name:'Canal Street Shopping',      tags:['shop','out','kids','walk'],dot:'shop',    energy:2, desc:'Souvenirs, street vendors, and NYC keepsakes. Great for kids.', dur:'2 hrs',
+  { day:'2', time:'3:00',  ap:'PM', name:'Canal Street Shopping',      tags:['shop','out','kids','walk'],dot:'shop',    energy:2, desc:'Souvenirs, street vendors, and NYC keepsakes. Great for picking up gifts for the kids.', dur:'2 hrs',
     tn:{i:'🚇',t:'Subway to hotel · ~20 min'} },
   { day:'2', time:'5:00',  ap:'PM', name:'Hotel + Rest',               tags:['rest','in'],               dot:'rest',    energy:1, desc:'Critical rest before the late-night birthday countdown. Kids must nap.', dur:'2.5 hrs',
     tn:{i:'🚇',t:'Subway to Midtown · ~30 min'} },
-  { day:'2', time:'7:30',  ap:'PM', name:'Bryant Park',                tags:['out','kids','night'],      dot:'night',   energy:1, desc:'Lovely Midtown park at dusk. A calm before Times Square.', dur:'15 min',
+  { day:'2', time:'7:30',  ap:'PM', name:'Bryant Park',                tags:['out','kids','night'],      dot:'night',   energy:1, desc:'Lovely Midtown park at dusk. A calm, beautiful moment before the Times Square excitement.', dur:'15 min',
     tn:{i:'🚶',t:'Walk · ~2 min'} },
-  { day:'2', time:'7:45',  ap:'PM', name:'New York Public Library',    tags:['cult','in','night','kids'],dot:'cult',    energy:1, desc:'Iconic Beaux-Arts landmark. Stunning exterior and lobby.', dur:'20 min',
+  { day:'2', time:'7:45',  ap:'PM', name:'New York Public Library',    tags:['cult','in','night','kids'],dot:'cult',    energy:1, desc:'Iconic Beaux-Arts landmark. Stunning exterior and main lobby worth seeing.', dur:'20 min',
     tn:{i:'🚶',t:'Walk · ~10 min'} },
-  { day:'2', time:'8:15',  ap:'PM', name:'Empire State Building',      tags:['views','out','night','must','kids'],dot:'views',energy:1, desc:'Exterior and base photos only. Beautifully lit at night.', dur:'20 min',
+  { day:'2', time:'8:15',  ap:'PM', name:'Empire State Building',      tags:['views','out','night','must','kids'],dot:'views',energy:1, desc:'Exterior and base photos only — beautifully lit at night. Great for family photos.', dur:'20 min',
     tn:{i:'🚶',t:'Walk · ~5 min'} },
-  { day:'2', time:'8:45',  ap:'PM', name:'Walk Fifth Avenue',          tags:['walk','out','night','shop'],dot:'night',  energy:2, desc:'The most famous avenue in the world, lit up at night.', dur:'30 min',
+  { day:'2', time:'8:45',  ap:'PM', name:'Walk Fifth Avenue',          tags:['walk','out','night','shop'],dot:'night',  energy:2, desc:'The most famous avenue in the world, lit up at night with flagship stores and architecture.', dur:'30 min',
     tn:{i:'🚶',t:'Walk · ~5 min'} },
-  { day:'2', time:'9:15',  ap:'PM', name:'Dinner',                     tags:['food','kids','night','in'],dot:'food',    energy:1, desc:'Family-style Italian feast or classic NYC pizza.', fo:["Carmine's (family-style)","John's of Times Square"], dur:'60 min',
+  { day:'2', time:'9:15',  ap:'PM', name:'Dinner',                     tags:['food','kids','night','in'],dot:'food',    energy:1, desc:'Family-style Italian feast or classic NYC pizza before the big midnight moment.', fo:["Carmine's (family-style)","John's of Times Square"], dur:'60 min',
     tn:{i:'🚶',t:'Walk to Times Square · ~5 min'} },
-  { day:'2', time:'10:15', ap:'PM', name:'Times Square · Countdown',   tags:['kids','shop','night','bday','tire','must'],dot:'bday',energy:3, desc:"M&M Store, Disney Store, Hershey's, souvenirs. Build the excitement!", dur:'90 min',
+  { day:'2', time:'10:15', ap:'PM', name:'Times Square · Countdown',   tags:['kids','shop','night','bday','tire','must'],dot:'bday',energy:3, desc:"M&M Store, Disney Store, Hershey's, souvenir shopping. Build the birthday excitement!", dur:'90 min',
     tn:{i:'🚶',t:'Stay in Times Square'} },
-  { day:'2', time:'11:45', ap:'PM', name:'Family Gathering · Times Sq',tags:['bday','night','must','out'],dot:'bday',   energy:2, desc:'Gather in the heart of Times Square. Family photos. Countdown begins.', dur:'15 min' },
+  { day:'2', time:'11:45', ap:'PM', name:'Family Gathering · Times Square',tags:['bday','night','must','out'],dot:'bday',energy:2, desc:'Gather in the heart of Times Square. Family photos. Countdown begins.', dur:'15 min' },
   { day:'2', time:'12:00', ap:'AM', name:'🎂 HAPPY BIRTHDAY!',         tags:['bday','night','must','kids'],dot:'bday',  energy:2, desc:'Midnight birthday in Times Square. An unforgettable family moment.', bday:true,
     tn:{i:'🚇',t:'Subway to hotel · ~30 min'} },
 
   // DAY 3
-  { day:'3', time:'10:00', ap:'AM', name:'Sleep In + Breakfast',       tags:['rest','food','kids','in'], dot:'rest',    energy:1, desc:'Birthday Day starts slow. Everyone deserves the extra sleep after midnight.', dur:'90 min',
+  { day:'3', time:'10:00', ap:'AM', name:'Sleep In + Breakfast',       tags:['rest','food','kids','in'], dot:'rest',    energy:1, desc:'Birthday Day starts slow. Everyone deserves extra sleep after the midnight celebration.', dur:'90 min',
     tn:{i:'🚇',t:'Subway uptown · ~35 min'} },
-  { day:'3', time:'12:00', ap:'PM', name:'The Metropolitan Museum of Art',tags:['must','cult','in','kids','bday','tire','walk'],dot:'cult',energy:3, desc:'Temple of Dendur, Egyptian Collection, Arms & Armor (kids!), European Paintings.', dur:'3 hrs', res:true,
+  { day:'3', time:'12:00', ap:'PM', name:'The Metropolitan Museum of Art',tags:['must','cult','in','kids','bday','tire','walk'],dot:'cult',energy:3, desc:'Temple of Dendur, Egyptian Collection, Arms & Armor (kids love it!), European Paintings. One of the world\'s greatest museums.', dur:'3 hrs', res:true,
     tn:{i:'🚶',t:'Walk · ~10 min'} },
-  { day:'3', time:'3:00',  ap:'PM', name:'Lunch · Upper East Side',    tags:['food','kids','in'],        dot:'food',    energy:1, desc:'Museum Cafe or nearby UES restaurant. Proper sit-down rest.', dur:'60 min',
+  { day:'3', time:'3:00',  ap:'PM', name:'Lunch · Upper East Side',    tags:['food','kids','in'],        dot:'food',    energy:1, desc:'Museum Cafe or a nearby Upper East Side restaurant. Take a proper sit-down break.', dur:'60 min',
     tn:{i:'🚶',t:'Walk to park entrance · ~5 min'} },
-  { day:'3', time:'4:00',  ap:'PM', name:'Central Park',               tags:['must','out','kids','walk','views','bday'],dot:'default',energy:2, desc:'Alice in Wonderland Statue, Bethesda Terrace, Bow Bridge, Sheep Meadow. Take it slow.', dur:'2 hrs',
+  { day:'3', time:'4:00',  ap:'PM', name:'Central Park',               tags:['must','out','kids','walk','views','bday'],dot:'default',energy:2, desc:'Alice in Wonderland Statue, Bethesda Terrace, Bow Bridge, Sheep Meadow. Take it slow and soak it all in.', dur:'2 hrs',
     tn:{i:'🚶',t:'Walk / short subway · ~20 min'} },
   { day:'3', time:'6:30',  ap:'PM', name:'Rockefeller Center',         tags:['must','cult','out','views','kids','bday'],dot:'views',energy:1, desc:'The iconic plaza. 30 Rock, NBC Studios, and the famous Prometheus fountain.', dur:'30 min',
     tn:{i:'🚶',t:'Walk · ~2 min'} },
-  { day:'3', time:'7:00',  ap:'PM', name:'FAO Schwarz',                tags:['shop','kids','in','bday'], dot:'shop',    energy:1, desc:'Legendary toy store. Birthday shopping — let the kids go wild.', dur:'45 min',
+  { day:'3', time:'7:00',  ap:'PM', name:'FAO Schwarz',                tags:['shop','kids','in','bday'], dot:'shop',    energy:1, desc:'Legendary toy store. Birthday shopping — let the kids pick their birthday treats.', dur:'45 min',
     tn:{i:'🚶',t:'Walk · ~3 min'} },
-  { day:'3', time:'7:45',  ap:'PM', name:'Nintendo Store NYC',         tags:['shop','kids','in','bday'], dot:'shop',    energy:1, desc:'Gaming paradise. Interactive displays and exclusive NYC merchandise.', dur:'30 min',
+  { day:'3', time:'7:45',  ap:'PM', name:'Nintendo Store NYC',         tags:['shop','kids','in','bday'], dot:'shop',    energy:1, desc:'Gaming paradise. Interactive displays, exclusive NYC merchandise, perfect birthday stop.', dur:'30 min',
     tn:{i:'🚶',t:'Walk · ~5 min'} },
-  { day:'3', time:'8:15',  ap:'PM', name:"St. Patrick's Cathedral",    tags:['cult','in','night'],       dot:'cult',    energy:1, desc:'Neo-Gothic masterpiece on Fifth Avenue. Beautiful when lit at night.', dur:'20 min',
+  { day:'3', time:'8:15',  ap:'PM', name:"St. Patrick's Cathedral",    tags:['cult','in','night'],       dot:'cult',    energy:1, desc:'Neo-Gothic masterpiece on Fifth Avenue. Beautiful and striking when lit at night.', dur:'20 min',
     tn:{i:'🚶',t:'Walk · ~10 min'} },
-  { day:'3', time:'8:45',  ap:'PM', name:'Grand Central Terminal',     tags:['must','cult','in','night','kids'],dot:'cult',energy:1, desc:'Main concourse ceiling, Whispering Gallery, and the famous four-faced clock.', dur:'30 min',
+  { day:'3', time:'8:45',  ap:'PM', name:'Grand Central Terminal',     tags:['must','cult','in','night','kids'],dot:'cult',energy:1, desc:'Main concourse ceiling, Whispering Gallery, and the famous four-faced clock. A NYC icon.', dur:'30 min',
     tn:{i:'🚶',t:'Walk · ~5 min'} },
   { day:'3', time:'9:15',  ap:'PM', name:'SUMMIT One Vanderbilt',      tags:['must','views','in','night','bday','tire'],dot:'views',energy:2, desc:'Immersive observatory — glass ledges, mirrored rooms, stunning night skyline. Book ahead.', dur:'90 min', res:true,
     tn:{i:'🚶',t:'Walk · ~5 min'} },
-  { day:'3', time:'10:45', ap:'PM', name:"Birthday Dinner · Junior's", tags:['food','kids','night','bday','must'],dot:'bday',energy:1, desc:"World-famous cheesecake. Try the chicken or fish, then the legendary dessert.", fo:["Junior's Famous Cheesecake","Chicken dishes","Fish dishes"], dur:'60+ min',
+  { day:'3', time:'10:45', ap:'PM', name:"Birthday Dinner · Junior's", tags:['food','kids','night','bday','must'],dot:'bday',energy:1, desc:"World-famous cheesecake. Try the chicken or fish, then celebrate with the legendary dessert.", fo:["Junior's Famous Cheesecake","Chicken dishes","Fish dishes"], dur:'60+ min',
     tn:{i:'🚇',t:'Subway to hotel · ~20 min'} },
-  { day:'3', time:'12:00', ap:'AM', name:'Return to Hotel',            tags:['rest'],                    dot:'rest',    energy:1, desc:'End of the best birthday ever.' },
+  { day:'3', time:'12:00', ap:'AM', name:'Return to Hotel',            tags:['rest'],                    dot:'rest',    energy:1, desc:'End of an incredible birthday day.' },
 
   // DAY 4
   { day:'4', time:'8:00',  ap:'AM', name:'Breakfast',                  tags:['food','kids'],             dot:'food',    energy:1, desc:'Final morning. Grab a good breakfast near the hotel.', dur:'60 min',
@@ -500,21 +571,21 @@ const ACTS = [
     tn:{i:'🚇',t:'Subway to Brooklyn · ~20 min'} },
   { day:'4', time:'12:00', ap:'PM', name:'DUMBO',                      tags:['must','out','views','walk','kids'],dot:'views',energy:2, desc:'Pebble Beach, Manhattan Bridge photo spot, Brooklyn waterfront. Best skyline photos in NYC.', dur:'75 min',
     tn:{i:'🚶',t:'Walk · ~5 min'} },
-  { day:'4', time:'1:15',  ap:'PM', name:'Lunch · Brooklyn',           tags:['food','kids','must'],      dot:'food',    energy:1, desc:'Two legendary options — take your pick.', fo:["Juliana's Pizza","Time Out Market"], dur:'75 min',
+  { day:'4', time:'1:15',  ap:'PM', name:'Lunch · Brooklyn',           tags:['food','kids','must'],      dot:'food',    energy:1, desc:'Two legendary options right in the neighborhood.', fo:["Juliana's Pizza","Time Out Market"], dur:'75 min',
     tn:{i:'🚶',t:'Walk to bridge entrance · ~10 min'} },
-  { day:'4', time:'2:30',  ap:'PM', name:'Walk Brooklyn Bridge',       tags:['must','out','walk','views','tire','kids'],dot:'views',energy:3, desc:'Brooklyn → Manhattan on foot. Sweeping river and skyline views.', dur:'90 min',
+  { day:'4', time:'2:30',  ap:'PM', name:'Walk Brooklyn Bridge',       tags:['must','out','walk','views','tire','kids'],dot:'views',energy:3, desc:'Brooklyn → Manhattan on foot. Sweeping river and skyline views the whole way. One of the great NYC experiences.', dur:'90 min',
     tn:{i:'🚶',t:'Walk · ~10 min'} },
-  { day:'4', time:'4:00',  ap:'PM', name:'South Street Seaport',       tags:['out','views','kids','rest'],dot:'default', energy:1, desc:'Relaxed waterfront stop. Historic ships and views back to Brooklyn.', dur:'60 min',
+  { day:'4', time:'4:00',  ap:'PM', name:'South Street Seaport',       tags:['out','views','kids','rest'],dot:'default', energy:1, desc:'Relaxed waterfront stop. Historic ships and great views back toward Brooklyn.', dur:'60 min',
     tn:{i:'🚶',t:'Walk · ~20 min'} },
-  { day:'4', time:'5:00',  ap:'PM', name:'SoHo',                       tags:['shop','out','walk','cult'], dot:'shop',    energy:2, desc:'Broadway, Prince Street, Spring Street. Boutiques, street art, cobblestones.', dur:'60 min',
+  { day:'4', time:'5:00',  ap:'PM', name:'SoHo',                       tags:['shop','out','walk','cult'], dot:'shop',    energy:2, desc:'Broadway, Prince Street, Spring Street. Boutiques, street art, beautiful cobblestone blocks.', dur:'60 min',
     tn:{i:'🚶',t:'Walk · ~10 min'} },
-  { day:'4', time:'6:00',  ap:'PM', name:'Greenwich Village',          tags:['cult','out','walk'],       dot:'cult',    energy:2, desc:'Tree-lined streets, brownstones, and cafes. Classic NYC neighborhood.', dur:'15 min',
+  { day:'4', time:'6:00',  ap:'PM', name:'Greenwich Village',          tags:['cult','out','walk'],       dot:'cult',    energy:2, desc:'Tree-lined streets, brownstones, and cafes. Classic NYC neighborhood charm.', dur:'15 min',
     tn:{i:'🚶',t:'Walk · ~5 min'} },
-  { day:'4', time:'6:15',  ap:'PM', name:'Washington Square Park',     tags:['must','out','kids','cult','views'],dot:'default',energy:1, desc:'Washington Arch, street performers, NYU energy. Perfect final NYC memory.', dur:'30 min',
+  { day:'4', time:'6:15',  ap:'PM', name:'Washington Square Park',     tags:['must','out','kids','cult','views'],dot:'default',energy:1, desc:'Washington Arch, street performers, NYU energy. A perfect final NYC memory for the family.', dur:'30 min',
     tn:{i:'🚶',t:'Walk to hotel · ~15 min'} },
-  { day:'4', time:'6:45',  ap:'PM', name:'Collect Luggage + Depart',   tags:['move'],                    dot:'move',    energy:2, desc:'Pick up bags from bell desk. Head to airport.',
+  { day:'4', time:'6:45',  ap:'PM', name:'Collect Luggage + Depart',   tags:['move'],                    dot:'move',    energy:2, desc:'Pick up bags from bell desk at Courtyard. Head to airport — allow plenty of time.',
     tn:{i:'🚇',t:'Subway or taxi to airport · ~45 min'} },
-  { day:'4', time:'9:00',  ap:'PM', name:'Flight Home ✈️',             tags:['move','tire'],             dot:'move',    energy:3, desc:'Trip complete. Incredible memories made.' },
+  { day:'4', time:'9:00',  ap:'PM', name:'Flight Home ✈️',             tags:['move','tire'],             dot:'move',    energy:3, desc:'Trip complete. Incredible memories made!' },
 ];
 
 const OVERVIEWS = [
@@ -533,42 +604,43 @@ const FOOD_CL = [
   'Halal Cart Chicken & Rice','Italian Pasta','Fish Tacos',"Junior's Cheesecake",'Black & White Cookie',
 ];
 
-// ── STATE ─────────────────────────────────────────────────────────────────────
+// ── STATE ─────────────────────────────────────────────
 let activeView = 'overview';
-let filters = new Set();
-let checked = new Set();
+let filters    = new Set();
+let checked    = new Set();
 
-// ── HELPERS ───────────────────────────────────────────────────────────────────
+// ── HELPERS ───────────────────────────────────────────
 function actIcon(act) {
   const t = TAGS[act.dot];
   if (t) return t.icon;
-  const first = act.tags[0];
-  return (TAGS[first] && TAGS[first].icon) || '📍';
+  return (TAGS[act.tags[0]] && TAGS[act.tags[0]].icon) || '📍';
 }
 
-// ── RENDER FILTER CHIPS ───────────────────────────────────────────────────────
+// ── FILTERS ───────────────────────────────────────────
 function renderFilters() {
   document.getElementById('frow').innerHTML =
     Object.entries(TAGS).map(([k, t]) => {
       const on = filters.has(k);
       return `<div class="fc ${on?'on':''}" data-tag="${k}"
-        style="${on ? `color:${t.c};border-color:${t.c};background:${t.c}18` : ''}"
-        onclick="toggleFilter('${k}',this,'${t.c}')">
+        style="${on?`color:${t.c};border-color:${t.c};background:${t.bg}`:''}">
         <span>${t.icon}</span>${t.label}
       </div>`;
-    }).join('') + `<span class="fclr" onclick="clearFilters()">Clear</span>`;
+    }).join('') + `<span class="fclr" onclick="clearFilters()">Clear all</span>`;
+  document.getElementById('frow').querySelectorAll('.fc').forEach(el => {
+    el.onclick = () => toggleFilter(el.dataset.tag, el);
+  });
 }
 
-function toggleFilter(tag, el, c) {
+function toggleFilter(tag, el) {
+  const t = TAGS[tag];
   if (filters.has(tag)) {
     filters.delete(tag); el.classList.remove('on');
     el.style.color=''; el.style.borderColor=''; el.style.background='';
   } else {
     filters.add(tag); el.classList.add('on');
-    el.style.color=c; el.style.borderColor=c; el.style.background=c+'18';
+    el.style.color=t.c; el.style.borderColor=t.c; el.style.background=t.bg;
   }
-  updateFToggle();
-  applyFilters();
+  updateFToggle(); applyFilters();
 }
 
 function clearFilters() { filters.clear(); renderFilters(); updateFToggle(); applyFilters(); }
@@ -587,53 +659,46 @@ function toggleDrawer() {
   if (d.classList.contains('open')) renderFilters();
 }
 
-// ── RENDER OVERVIEW ───────────────────────────────────────────────────────────
+// ── OVERVIEW ──────────────────────────────────────────
 function renderOverview() {
   const el = document.getElementById('ovcards');
   el.innerHTML = OVERVIEWS.map(day => {
     const acts = ACTS.filter(a => a.day === day.id);
-    const totalActs = acts.length;
-    // build flow strip
     let flowHtml = '';
     acts.forEach((act, i) => {
       const icon = actIcon(act);
       const timeStr = act.time + ' ' + act.ap;
-      flowHtml += `
-        <div class="df-chip">
-          <span class="df-chip-icon">${icon}</span>
-          <span class="df-chip-time">${timeStr}</span>
-          <span class="df-chip-name">${act.name.replace(/✈️\s*/,'')}</span>
-        </div>`;
+      flowHtml += `<div class="df-chip">
+        <span class="df-chip-icon">${icon}</span>
+        <span class="df-chip-time">${timeStr}</span>
+        <span class="df-chip-name">${act.name.replace(/✈️\s*/,'')}</span>
+      </div>`;
       if (act.tn && i < acts.length - 1) {
-        flowHtml += `
-          <div class="df-conn">
-            <span class="df-conn-arrow">›</span>
-            <span class="df-conn-icon">${act.tn.i}</span>
-            <span class="df-conn-text">${act.tn.t}</span>
-            <span class="df-conn-arrow">›</span>
-          </div>`;
+        flowHtml += `<div class="df-conn">
+          <span class="df-conn-arrow">›</span>
+          <span class="df-conn-icon">${act.tn.i}</span>
+          <span>${act.tn.t}</span>
+          <span class="df-conn-arrow">›</span>
+        </div>`;
       }
     });
-
     return `
       <div class="day-card" onclick="showView('d${day.id}')">
         <div class="dc-top">
           <div>
-            <div class="dc-label">${day.label} · <span style="font-weight:400;text-transform:none;letter-spacing:0">${day.date}</span></div>
+            <div class="dc-label">${day.label} · ${day.date}</div>
             <div class="dc-title">${day.title}</div>
             <div class="dc-theme">${day.theme}</div>
           </div>
           <div class="dc-go">›</div>
         </div>
         <div class="day-flow">${flowHtml}</div>
-        <div class="dc-meta">
-          <span>📍 ${totalActs} stops</span>
-        </div>
+        <div class="dc-meta"><span>📍 ${acts.length} stops</span></div>
       </div>`;
   }).join('');
 }
 
-// ── RENDER DAY DETAIL ─────────────────────────────────────────────────────────
+// ── DAY DETAIL ────────────────────────────────────────
 function renderDay(id) {
   const el = document.getElementById(`view-d${id}`);
   if (el.dataset.rendered) return;
@@ -653,21 +718,41 @@ function renderDay(id) {
     <div class="tl">`;
 
   acts.forEach((act, i) => {
-    const dc = DOT_C[act.dot] || DOT_C.default;
-    const icons = act.tags.map(t => TAGS[t] ? `<span class="tic" title="${TAGS[t].label}">${TAGS[t].icon}</span>` : '').join('');
-    const tagStr = act.tags.join(' ');
+    const dc      = DOT_C[act.dot] || DOT_C.default;
+    const tagStr  = act.tags.join(' ');
+    const tagChips = act.tags.map(t => {
+      const td = TAGS[t];
+      return td ? `<span class="atag" style="background:${td.bg};color:${td.c}">${td.icon} ${td.label}</span>` : '';
+    }).join('');
+    const energySegs = [1,2,3,4].map(n =>
+      `<div class="ebar-seg" style="background:${n <= act.energy ? ENERGY_C[act.energy] : '#e5e7eb'}"></div>`
+    ).join('');
+
+    // card body
+    let body = '';
+    if (act.bday) body += `<div class="bdayflash">🎂 HAPPY BIRTHDAY! 🎉</div>`;
+    body += `<div class="adesc">${act.desc}</div>`;
+    if (act.fo) body += `<div class="fopts">${act.fo.map(f=>`<span class="fopt">🍴 ${f}</span>`).join('')}</div>`;
+
+    let meta = '';
+    if (act.dur) meta += `<span class="mpill mdur">⏱ ${act.dur}</span>`;
+    if (act.res) meta += `<span class="mpill mbook">📋 Book ahead</span>`;
+    if (meta) body += `<div class="ameta">${meta}</div>`;
+
+    body += `<div class="atags">${tagChips}</div>`;
+    body += `<div class="aenergy"><div class="ebar">${energySegs}</div><span>${ENERGY_LABEL[act.energy]}</span></div>`;
 
     html += `
       <div class="arow" data-tags="${tagStr}" id="ar-${id}-${i}">
         <div class="atime"><div class="at">${act.time}<em>${act.ap}</em></div></div>
         <div class="adotcol"><div class="adot" style="background:${dc}"></div></div>
         <div class="acol">
-          <div class="acard" onclick="toggleCard(this)">
-            <div class="aface">
+          <div class="acard">
+            <div class="acard-bar" style="background:${dc}"></div>
+            <div class="acard-inner">
               <div class="aname">${act.name}</div>
-              <div class="aicons">${icons}<div class="edot e${act.energy}"></div><div class="chev">▾</div></div>
+              ${body}
             </div>
-            <div class="abody">${buildBody(act)}</div>
           </div>
         </div>
       </div>`;
@@ -690,30 +775,15 @@ function renderDay(id) {
   el.innerHTML = html;
 }
 
-function buildBody(act) {
-  let h = '<div class="abody-in">';
-  if (act.bday) h += `<div class="bdayflash">🎂 HAPPY BIRTHDAY! 🎉</div>`;
-  h += `<div class="adesc">${act.desc}</div>`;
-  if (act.fo) h += `<div class="fopts">${act.fo.map(f=>`<span class="fopt">🍴 ${f}</span>`).join('')}</div>`;
-  h += `<div class="ameta">`;
-  if (act.dur) h += `<span class="mpill mdur">⏱ ${act.dur}</span>`;
-  if (act.res) h += `<span class="mpill mbook">📋 Book ahead</span>`;
-  h += `</div></div>`;
-  return h;
-}
-
-function toggleCard(card) { card.classList.toggle('exp'); }
-
-// ── APPLY FILTERS ─────────────────────────────────────────────────────────────
+// ── APPLY FILTERS ─────────────────────────────────────
 function applyFilters() {
   if (activeView === 'overview') return;
-  const id = activeView.replace('d', '');
+  const id = activeView.replace('d','');
   const el = document.getElementById(`view-d${id}`);
   if (!el) return;
 
   const rows = Array.from(el.querySelectorAll('.arow'));
   let vis = 0;
-
   rows.forEach((row, i) => {
     if (row.classList.contains('tconn-row')) return;
     if (filters.size === 0) { row.classList.remove('out'); vis++; return; }
@@ -722,18 +792,15 @@ function applyFilters() {
     row.classList.toggle('out', !match);
     if (match) vis++;
   });
-
-  // hide connectors whose preceding activity row is hidden
   rows.forEach((row, i) => {
     if (!row.classList.contains('tconn-row')) return;
     const prev = rows[i - 1];
     row.classList.toggle('out', prev && prev.classList.contains('out'));
   });
-
   document.getElementById('empty').style.display = vis === 0 ? 'block' : 'none';
 }
 
-// ── SHOW VIEW ─────────────────────────────────────────────────────────────────
+// ── SHOW VIEW ─────────────────────────────────────────
 function showView(view) {
   activeView = view;
   document.querySelectorAll('.dt').forEach((t, i) => {
@@ -747,10 +814,10 @@ function showView(view) {
   window.scrollTo(0, 0);
 }
 
-// ── PANELS ────────────────────────────────────────────────────────────────────
+// ── PANELS ────────────────────────────────────────────
 function togglePanel(id) { document.getElementById(`panel-${id}`).classList.toggle('open'); }
 
-// ── FOOD CHECKLIST ────────────────────────────────────────────────────────────
+// ── FOOD CHECKLIST ────────────────────────────────────
 function renderChecklist() {
   document.getElementById('clgrid').innerHTML = FOOD_CL.map((item, i) => `
     <div class="cl-item ${checked.has(i)?'chk':''}" onclick="toggleCheck(${i})">
@@ -759,7 +826,7 @@ function renderChecklist() {
 }
 function toggleCheck(i) { checked.has(i) ? checked.delete(i) : checked.add(i); renderChecklist(); }
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
+// ── INIT ──────────────────────────────────────────────
 renderOverview();
 renderChecklist();
 </script>
